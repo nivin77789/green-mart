@@ -375,6 +375,7 @@ const Dashboard = () => {
             topProducts,
             orderStatusData,
             revenueChartData: { labels: revLabels, values: revValues },
+            inventoryChartData: { labels: invLabels, values: invValues },
             detailedRevenue,
             lowStockProducts,
             allStockItems: Object.entries(data.stock || {}).flatMap(([prodId, variants]: [string, any]) => {
