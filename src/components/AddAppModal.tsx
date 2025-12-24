@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
 import { iconMap, iconList } from "@/utils/appIcons";
 import { appColors } from "@/utils/appColors";
 import { Search, ChevronLeft, Loader2, Link as LinkIcon, FileCode } from "lucide-react";
@@ -24,7 +26,8 @@ export function AddAppModal({ open, onOpenChange, initialData }: AddAppModalProp
         icon: "Layout",
         color: appColors[0],
         type: "url" as "url" | "html",
-        content: ""
+        content: "",
+        openInNewTab: false
     });
 
     // Effect to reset or populate form
@@ -40,7 +43,8 @@ export function AddAppModal({ open, onOpenChange, initialData }: AddAppModalProp
                     icon: initialData.icon,
                     color: foundColor,
                     type: initialData.type || "url",
-                    content: initialData.type === 'html' ? initialData.htmlContent : initialData.path
+                    content: initialData.type === 'html' ? initialData.htmlContent : initialData.path,
+                    openInNewTab: initialData.openInNewTab || false
                 });
             } else {
                 setFormData({
@@ -48,7 +52,8 @@ export function AddAppModal({ open, onOpenChange, initialData }: AddAppModalProp
                     icon: "Layout",
                     color: appColors[0],
                     type: "url",
-                    content: ""
+                    content: "",
+                    openInNewTab: false
                 });
             }
             setStep("form");
@@ -80,6 +85,7 @@ export function AddAppModal({ open, onOpenChange, initialData }: AddAppModalProp
                     path: formData.type === 'url' ? formData.content : `/custom-app/${initialData.id}`,
                     type: formData.type,
                     htmlContent: formData.type === 'html' ? formData.content : null,
+                    openInNewTab: formData.openInNewTab,
                 });
             } else {
                 // Create
@@ -93,6 +99,7 @@ export function AddAppModal({ open, onOpenChange, initialData }: AddAppModalProp
                     path: formData.type === 'url' ? formData.content : `/custom-app/${newAppRef.key}`,
                     type: formData.type,
                     htmlContent: formData.type === 'html' ? formData.content : null,
+                    openInNewTab: formData.openInNewTab,
                     createdAt: firebase.database.ServerValue.TIMESTAMP
                 });
             }
@@ -189,12 +196,24 @@ export function AddAppModal({ open, onOpenChange, initialData }: AddAppModalProp
                                         {formData.type === 'url' ? 'Destination URL' : 'Upload HTML File'}
                                     </label>
                                     {formData.type === 'url' ? (
-                                        <Input
-                                            placeholder="https://example.com"
-                                            value={formData.content}
-                                            onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-                                            className="bg-slate-50 dark:bg-slate-800/50"
-                                        />
+                                        <>
+                                            <Input
+                                                placeholder="https://example.com"
+                                                value={formData.content}
+                                                onChange={(e) => setFormData({ ...formData, content: e.target.value })}
+                                                className="bg-slate-50 dark:bg-slate-800/50"
+                                            />
+                                            <div className="flex items-center gap-2 pt-2">
+                                                <Checkbox
+                                                    id="openInNewTab"
+                                                    checked={formData.openInNewTab}
+                                                    onCheckedChange={(checked) => setFormData({ ...formData, openInNewTab: checked as boolean })}
+                                                />
+                                                <Label htmlFor="openInNewTab" className="text-sm cursor-pointer text-slate-600 dark:text-slate-400">
+                                                    Redirect to new page when clicked
+                                                </Label>
+                                            </div>
+                                        </>
                                     ) : (
                                         <div className="flex flex-col gap-2">
                                             <div

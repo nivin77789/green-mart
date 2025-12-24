@@ -38,7 +38,7 @@ const defaultAppItems = [
   { icon: LayoutDashboard, label: "Report", path: "/overview", color: "bg-cyan-500" },
   { icon: Sparkles, label: "AI Chat", path: "/chat", color: "bg-blue-600" },
   { icon: ClipboardList, label: "Orders", path: "/orders", color: "bg-pink-500" },
-  { icon: Truck, label: "Deliver", path: "/delivery", color: "bg-emerald-500" },
+  { icon: Truck, label: "Delivery", path: "/delivery", color: "bg-emerald-500" },
   { icon: Package, label: "Stocks", path: "/stock-entry", color: "bg-blue-500" },
   { icon: ShoppingBag, label: "Products", path: "/product-entry", color: "bg-violet-500" },
   { icon: Building2, label: "Purchase", path: "/back-office", color: "bg-teal-500" },
@@ -214,7 +214,7 @@ const Navbar = () => {
             </div>
 
             {/* Notifications */}
-            <div className="relative hidden md:block" ref={notificationRef}>
+            <div className="relative block" ref={notificationRef}>
               <button
                 onClick={() => setNotificationsOpen(!notificationsOpen)}
                 className={`p-2.5 rounded-full transition-colors relative ${notificationsOpen ? 'bg-secondary' : 'hover:bg-secondary'}`}

@@ -56,7 +56,7 @@ const initialAppsList = [
     { id: "keyword-entry", label: "Keyword Entry", path: "/keyword-entry", icon: Keyboard },
     { id: "tasks", label: "Task Manager", path: "/tasks", icon: Grid3X3 },
     { id: "notifications", label: "Notification", path: "/notifications", icon: Bell },
-    { id: "staffes", label: "Staffes", path: "/staffes", icon: Users },
+    { id: "staffes", label: "Staffs", path: "/staffes", icon: Users },
 ];
 
 const Staffes = () => {
@@ -229,7 +229,7 @@ const Staffes = () => {
                         <BackButton />
                         <div>
                             <h1 className="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-                                Staffes
+                                Staffs
                             </h1>
                             <p className="text-slate-500 dark:text-slate-400 mt-1">Manage and view internal staff directory</p>
                         </div>

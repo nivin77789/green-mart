@@ -43,7 +43,7 @@ const initialApps = [
   { icon: LayoutDashboard, label: "Report", colorClass: "app-icon-cyan", path: "/overview" },
   { icon: Sparkles, label: "AI Chat", colorClass: "app-icon-blue", path: "/chat" },
   { icon: ClipboardList, label: "Orders", colorClass: "app-icon-pink", path: "/orders" },
-  { icon: Truck, label: "Deliver", colorClass: "app-icon-green", path: "/delivery" },
+  { icon: Truck, label: "Delivery", colorClass: "app-icon-green", path: "/delivery" },
   { icon: Package, label: "Stocks", colorClass: "app-icon-blue", path: "/stock-entry" },
   { icon: ShoppingBag, label: "Products", colorClass: "app-icon-purple", path: "/product-entry" },
   { icon: Building2, label: "Purchase", colorClass: "app-icon-teal", path: "/back-office" },
@@ -150,7 +150,13 @@ const AppGrid = ({ isManaging = false, searchQuery = "" }: { isManaging?: boolea
 
               return (
                 <div className="relative group/item" key={app.id}>
-                  <Link to={isManaging ? "#" : path} onClick={(e) => isManaging && e.preventDefault()} className={isManaging ? "cursor-default" : ""}>
+                  <Link
+                    to={isManaging ? "#" : path}
+                    onClick={(e) => isManaging && e.preventDefault()}
+                    className={isManaging ? "cursor-default" : ""}
+                    target={(!isManaging && app.openInNewTab) ? "_blank" : undefined}
+                    rel={(!isManaging && app.openInNewTab) ? "noopener noreferrer" : undefined}
+                  >
                     <AppIcon
                       icon={Icon}
                       label={app.name}
