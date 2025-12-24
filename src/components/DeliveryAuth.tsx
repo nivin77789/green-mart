@@ -96,31 +96,31 @@ export const DeliveryAuth = ({ onLogin }: AuthProps) => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-950 p-6 relative overflow-hidden font-sans">
+        <div className="min-h-screen flex items-center justify-center bg-[#FDFCF5] dark:bg-slate-950 p-6 relative overflow-hidden font-sans">
 
             {/* Background Blobs */}
-            <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-blue-500/10 dark:bg-blue-600/20 rounded-full blur-[120px] animate-float" />
-            <div className="absolute bottom-[-10%] right-[-20%] w-[60%] h-[60%] bg-indigo-500/10 dark:bg-indigo-600/20 rounded-full blur-[120px] animate-float-reverse" />
+            <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-[#D2B48C]/20 dark:bg-blue-600/20 rounded-full blur-[120px] animate-float" />
+            <div className="absolute bottom-[-10%] right-[-20%] w-[60%] h-[60%] bg-[#DEB887]/20 dark:bg-indigo-600/20 rounded-full blur-[120px] animate-float-reverse" />
 
             <div className="w-full max-w-md relative z-10 animate-in fade-in slide-in-from-bottom-8 duration-1000">
                 <div className="text-center mb-10 space-y-3">
-                    <div className="w-24 h-24 bg-white dark:bg-slate-900 rounded-[2.5rem] shadow-2xl flex items-center justify-center mx-auto mb-6 border border-slate-100 dark:border-slate-800 rotate-12 hover:rotate-0 transition-transform duration-500">
-                        <Truck size={48} className="text-indigo-600 animate-pulse" />
+                    <div className="w-24 h-24 bg-white/80 dark:bg-slate-900 rounded-[2.5rem] shadow-2xl flex items-center justify-center mx-auto mb-6 border border-[#8D6E63]/10 dark:border-slate-800 rotate-12 hover:rotate-0 transition-transform duration-500">
+                        <Truck size={48} className="text-[#5D4037] dark:text-indigo-400 animate-pulse" />
                     </div>
-                    <h1 className="text-4xl font-black text-slate-900 dark:text-white tracking-tight">
-                        Green Mart<span className="text-indigo-600">Hub</span>
+                    <h1 className="text-4xl font-black text-[#3E2723] dark:text-white tracking-tight">
+                        Green Mart<span className="text-[#8D6E63]">Hub</span>
                     </h1>
-                    <p className="text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider text-xs">
+                    <p className="text-[#5D4037]/70 dark:text-slate-400 font-bold uppercase tracking-wider text-xs">
                         Delivery Partner Portal
                     </p>
                 </div>
 
-                <div className="bg-white/70 dark:bg-slate-900/70 backdrop-blur-3xl rounded-[3rem] p-8 shadow-2xl shadow-indigo-500/10 border border-white/50 dark:border-slate-800/50 space-y-6">
+                <div className="bg-white/60 dark:bg-slate-900/70 backdrop-blur-3xl rounded-[3rem] p-8 shadow-2xl shadow-[#8D6E63]/10 dark:shadow-indigo-500/10 border border-[#8D6E63]/20 dark:border-slate-800/50 space-y-6">
                     <div className="text-center mb-4">
-                        <h2 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">
+                        <h2 className="text-2xl font-black text-[#3E2723] dark:text-white tracking-tight">
                             {isLogin ? "Welcome Back" : "Join the Fleet"}
                         </h2>
-                        <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">
+                        <p className="text-sm text-[#5D4037]/70 dark:text-slate-400 font-medium">
                             {isLogin ? "Enter your credentials to access dashboard" : "Register and start earning today"}
                         </p>
                     </div>
@@ -129,18 +129,18 @@ export const DeliveryAuth = ({ onLogin }: AuthProps) => {
                         {!isLogin && (
                             <div className="grid grid-cols-2 gap-4 animate-in fade-in slide-in-from-top-4 duration-500">
                                 <div className="space-y-1.5">
-                                    <Label className="text-[10px] font-black uppercase tracking-widest text-slate-400 px-1">Full Name</Label>
+                                    <Label className="text-[10px] font-black uppercase tracking-widest text-[#8D6E63] dark:text-slate-400 px-1">Full Name</Label>
                                     <Input
-                                        className="h-14 rounded-2xl bg-slate-50/50 dark:bg-slate-800/50 border-slate-100 dark:border-slate-700/50 font-bold focus:ring-2 focus:ring-indigo-500 transition-all px-5"
+                                        className="h-14 rounded-2xl bg-[#FAFAFA] dark:bg-slate-800/50 border-[#D7CCC8] dark:border-slate-700/50 font-bold focus:ring-2 focus:ring-[#8D6E63] dark:focus:ring-indigo-500 transition-all px-5"
                                         placeholder="John Doe"
                                         value={formData.name}
                                         onChange={e => setFormData({ ...formData, name: e.target.value })}
                                     />
                                 </div>
                                 <div className="space-y-1.5">
-                                    <Label className="text-[10px] font-black uppercase tracking-widest text-slate-400 px-1">Phone</Label>
+                                    <Label className="text-[10px] font-black uppercase tracking-widest text-[#8D6E63] dark:text-slate-400 px-1">Phone</Label>
                                     <Input
-                                        className="h-14 rounded-2xl bg-slate-50/50 dark:bg-slate-800/50 border-slate-100 dark:border-slate-700/50 font-bold focus:ring-2 focus:ring-indigo-500 transition-all px-5"
+                                        className="h-14 rounded-2xl bg-[#FAFAFA] dark:bg-slate-800/50 border-[#D7CCC8] dark:border-slate-700/50 font-bold focus:ring-2 focus:ring-[#8D6E63] dark:focus:ring-indigo-500 transition-all px-5"
                                         placeholder="+91..."
                                         value={formData.phone}
                                         onChange={e => setFormData({ ...formData, phone: e.target.value })}
@@ -150,9 +150,9 @@ export const DeliveryAuth = ({ onLogin }: AuthProps) => {
                         )}
 
                         <div className="space-y-1.5">
-                            <Label className="text-[10px] font-black uppercase tracking-widest text-slate-400 px-1">Email Address</Label>
+                            <Label className="text-[10px] font-black uppercase tracking-widest text-[#8D6E63] dark:text-slate-400 px-1">Email Address</Label>
                             <Input
-                                className="h-14 rounded-2xl bg-slate-50/50 dark:bg-slate-800/50 border-slate-100 dark:border-slate-700/50 font-bold focus:ring-2 focus:ring-indigo-500 transition-all px-5"
+                                className="h-14 rounded-2xl bg-[#FAFAFA] dark:bg-slate-800/50 border-[#D7CCC8] dark:border-slate-700/50 font-bold focus:ring-2 focus:ring-[#8D6E63] dark:focus:ring-indigo-500 transition-all px-5"
                                 type="email"
                                 placeholder="name@GreenMart.in"
                                 value={formData.email}
@@ -161,9 +161,9 @@ export const DeliveryAuth = ({ onLogin }: AuthProps) => {
                         </div>
 
                         <div className="space-y-1.5">
-                            <Label className="text-[10px] font-black uppercase tracking-widest text-slate-400 px-1">Security Key</Label>
+                            <Label className="text-[10px] font-black uppercase tracking-widest text-[#8D6E63] dark:text-slate-400 px-1">Security Key</Label>
                             <Input
-                                className="h-14 rounded-2xl bg-slate-50/50 dark:bg-slate-800/50 border-slate-100 dark:border-slate-700/50 font-bold focus:ring-2 focus:ring-indigo-500 transition-all px-5"
+                                className="h-14 rounded-2xl bg-[#FAFAFA] dark:bg-slate-800/50 border-[#D7CCC8] dark:border-slate-700/50 font-bold focus:ring-2 focus:ring-[#8D6E63] dark:focus:ring-indigo-500 transition-all px-5"
                                 type="password"
                                 placeholder="••••••••"
                                 value={formData.password}
@@ -173,7 +173,7 @@ export const DeliveryAuth = ({ onLogin }: AuthProps) => {
 
                         <Button
                             onClick={handleSubmit}
-                            className="w-full h-16 bg-indigo-600 hover:bg-indigo-500 dark:bg-indigo-500 dark:hover:bg-indigo-400 text-white font-black text-lg rounded-2xl shadow-xl shadow-indigo-600/20 active:scale-95 transition-all mt-4"
+                            className="w-full h-16 bg-[#5D4037] hover:bg-[#4E342E] dark:bg-indigo-500 dark:hover:bg-indigo-400 text-white font-black text-lg rounded-2xl shadow-xl shadow-[#5D4037]/20 dark:shadow-indigo-600/20 active:scale-95 transition-all mt-4"
                         >
                             {isLogin ? "Launch Dashboard" : "Register Account"}
                         </Button>
@@ -182,14 +182,14 @@ export const DeliveryAuth = ({ onLogin }: AuthProps) => {
                     <div className="text-center">
                         <button
                             onClick={() => setIsLogin(!isLogin)}
-                            className="text-xs font-black uppercase tracking-[0.2em] text-slate-400 hover:text-indigo-600 transition-colors py-2"
+                            className="text-xs font-black uppercase tracking-[0.2em] text-[#8D6E63] hover:text-[#5D4037] dark:text-slate-400 dark:hover:text-indigo-600 transition-colors py-2"
                         >
                             {isLogin ? "Need an entry? Join us →" : "← Back to Login"}
                         </button>
                     </div>
                 </div>
 
-                <p className="mt-8 text-center text-[10px] font-black uppercase tracking-[0.3em] text-slate-400/50">
+                <p className="mt-8 text-center text-[10px] font-black uppercase tracking-[0.3em] text-[#A1887F]/50 dark:text-slate-400/50">
                     Secure & Encrypted Environment
                 </p>
             </div>

@@ -116,7 +116,7 @@ const Gateway = () => {
     };
 
     return (
-        <div className={`min-h-screen flex items-center justify-center p-6 sm:p-8 overflow-hidden relative selection:bg-blue-500/30 font-sans antialiased transition-colors duration-500 ${isDark ? 'bg-slate-950 text-slate-200' : 'bg-slate-50 text-slate-800'}`}>
+        <div className={`min-h-screen flex items-center justify-center p-6 sm:p-8 overflow-hidden relative selection:bg-[#8D6E63]/30 font-sans antialiased transition-colors duration-500 ${isDark ? 'bg-slate-950 text-slate-200' : 'bg-[#FDFCF5] text-[#5D4037]'}`}>
 
             {/* Theme Toggle Button */}
             <div className="absolute top-6 right-6 z-50 animate-reveal-up">
@@ -124,7 +124,7 @@ const Gateway = () => {
                     onClick={toggleTheme}
                     className={`p-3 rounded-2xl border transition-all duration-300 ${isDark
                         ? 'bg-slate-900/50 border-slate-800 text-yellow-400 hover:bg-slate-800'
-                        : 'bg-white border-slate-200 text-indigo-600 hover:bg-slate-50 shadow-sm'
+                        : 'bg-white/80 border-[#8D6E63]/20 text-[#5D4037] hover:bg-white shadow-sm'
                         }`}
                 >
                     {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
@@ -133,26 +133,26 @@ const Gateway = () => {
 
             {/* Advanced background system */}
             <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-                <div className={`absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full blur-[120px] animate-float transition-colors duration-1000 ${isDark ? 'bg-blue-600/20' : 'bg-blue-400/10'}`} />
-                <div className={`absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full blur-[120px] animate-float-reverse transition-colors duration-1000 ${isDark ? 'bg-violet-600/20' : 'bg-violet-400/10'}`} />
-                <div className={`absolute top-[20%] right-[10%] w-[30%] h-[30%] rounded-full blur-[100px] animate-glow-pulse transition-colors duration-1000 ${isDark ? 'bg-indigo-600/10' : 'bg-indigo-400/5'}`} />
+                <div className={`absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full blur-[120px] animate-float transition-colors duration-1000 ${isDark ? 'bg-blue-600/20' : 'bg-[#D2B48C]/20'}`} />
+                <div className={`absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full blur-[120px] animate-float-reverse transition-colors duration-1000 ${isDark ? 'bg-violet-600/20' : 'bg-[#DEB887]/20'}`} />
+                <div className={`absolute top-[20%] right-[10%] w-[30%] h-[30%] rounded-full blur-[100px] animate-glow-pulse transition-colors duration-1000 ${isDark ? 'bg-indigo-600/10' : 'bg-[#F5DEB3]/10'}`} />
 
                 {/* Grid Overlay */}
                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-overlay" />
-                <div className={`absolute inset-x-0 top-0 h-px transition-colors duration-1000 ${isDark ? 'bg-gradient-to-r from-transparent via-white/10 to-transparent' : 'bg-gradient-to-r from-transparent via-slate-200 to-transparent'}`} />
-                <div className={`absolute inset-x-0 bottom-0 h-px transition-colors duration-1000 ${isDark ? 'bg-gradient-to-r from-transparent via-white/10 to-transparent' : 'bg-gradient-to-r from-transparent via-slate-200 to-transparent'}`} />
+                <div className={`absolute inset-x-0 top-0 h-px transition-colors duration-1000 ${isDark ? 'bg-gradient-to-r from-transparent via-white/10 to-transparent' : 'bg-gradient-to-r from-transparent via-[#D7CCC8] to-transparent'}`} />
+                <div className={`absolute inset-x-0 bottom-0 h-px transition-colors duration-1000 ${isDark ? 'bg-gradient-to-r from-transparent via-white/10 to-transparent' : 'bg-gradient-to-r from-transparent via-[#D7CCC8] to-transparent'}`} />
             </div>
 
             <div className="relative z-10 w-full max-w-5xl">
                 <div className="text-center mb-16 space-y-4 animate-reveal-up">
-                    <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full border text-xs font-medium uppercase tracking-[0.2em] backdrop-blur-md mb-2 transition-colors duration-300 ${isDark ? 'bg-white/5 border-white/10 text-white/60' : 'bg-white border-slate-200 text-slate-500 shadow-sm'}`}>
-                        <Sparkles className="w-3.5 h-3.5 text-blue-500" />
+                    <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full border text-xs font-medium uppercase tracking-[0.2em] backdrop-blur-md mb-2 transition-colors duration-300 ${isDark ? 'bg-white/5 border-white/10 text-white/60' : 'bg-white/50 border-[#8D6E63]/20 text-[#5D4037] shadow-sm'}`}>
+                        <Sparkles className={`w-3.5 h-3.5 ${isDark ? 'text-blue-500' : 'text-[#8D6E63]'}`} />
                         <span>Unified Access Control</span>
                     </div>
-                    <h1 className={`text-5xl sm:text-7xl font-black tracking-tighter leading-[0.9] text-balance transition-colors duration-300 ${isDark ? 'text-white' : 'text-slate-900'}`}>
-                        Green<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-indigo-500 to-violet-500">Mart</span>
+                    <h1 className={`text-5xl sm:text-7xl font-black tracking-tighter leading-[0.9] text-balance transition-colors duration-300 ${isDark ? 'text-white' : 'text-[#3E2723]'}`}>
+                        Green<span className="text-transparent bg-clip-text bg-gradient-to-r from-[#5D4037] via-[#795548] to-[#8D6E63]">Mart</span>
                     </h1>
-                    <p className={`text-lg sm:text-xl font-medium max-w-2xl mx-auto leading-relaxed transition-colors duration-300 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                    <p className={`text-lg sm:text-xl font-medium max-w-2xl mx-auto leading-relaxed transition-colors duration-300 ${isDark ? 'text-slate-400' : 'text-[#5D4037]/80'}`}>
                         One ecosystem. Infinite possibilities. Select your access point.
                     </p>
                 </div>
@@ -164,22 +164,22 @@ const Gateway = () => {
                             onClick={() => handleSelection('admin')}
                             className="group relative cursor-pointer opacity-0 animate-reveal-up stagger-1"
                         >
-                            <div className="absolute -inset-0.5 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-[2.5rem] blur opacity-0 group-hover:opacity-40 transition duration-1000 group-hover:duration-200" />
-                            <Card className={`relative h-full border backdrop-blur-3xl overflow-hidden rounded-[2rem] transition-all duration-500 group-hover:translate-y-[-8px] ${isDark ? 'bg-slate-900/40 border-slate-800/50 group-hover:bg-slate-900/60' : 'bg-white/80 border-slate-200 group-hover:bg-white shadow-xl shadow-slate-200/50'}`}>
-                                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            <div className="absolute -inset-0.5 bg-gradient-to-br from-[#5D4037] to-[#795548] rounded-[2.5rem] blur opacity-0 group-hover:opacity-40 transition duration-1000 group-hover:duration-200" />
+                            <Card className={`relative h-full border backdrop-blur-3xl overflow-hidden rounded-[2rem] transition-all duration-500 group-hover:translate-y-[-8px] ${isDark ? 'bg-slate-900/40 border-slate-800/50 group-hover:bg-slate-900/60' : 'bg-white/60 border-[#8D6E63]/20 group-hover:bg-white shadow-xl shadow-[#8D6E63]/10'}`}>
+                                <div className={`absolute inset-0 bg-gradient-to-br transition-opacity duration-500 opacity-0 group-hover:opacity-100 ${isDark ? 'from-blue-600/5' : 'from-[#5D4037]/5'} to-transparent`} />
 
                                 <CardHeader className="p-8 pb-4 text-center">
-                                    <div className="w-20 h-20 rounded-3xl bg-blue-500/10 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 border border-blue-500/20 shadow-2xl shadow-blue-500/10 text-blue-500">
+                                    <div className={`w-20 h-20 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 border shadow-2xl ${isDark ? 'bg-blue-500/10 border-blue-500/20 shadow-blue-500/10 text-blue-500' : 'bg-[#5D4037]/10 border-[#5D4037]/20 shadow-[#5D4037]/10 text-[#5D4037]'}`}>
                                         <Shield className="w-10 h-10" />
                                     </div>
-                                    <CardTitle className={`text-2xl font-black mb-2 transition-colors ${isDark ? 'text-white' : 'text-slate-900'}`}>Administrator</CardTitle>
-                                    <CardDescription className={`text-sm leading-relaxed px-4 font-medium transition-colors ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                                    <CardTitle className={`text-2xl font-black mb-2 transition-colors ${isDark ? 'text-white' : 'text-[#3E2723]'}`}>Administrator</CardTitle>
+                                    <CardDescription className={`text-sm leading-relaxed px-4 font-medium transition-colors ${isDark ? 'text-slate-400' : 'text-[#5D4037]/70'}`}>
                                         Full system control, data analytics, and global configuration.
                                     </CardDescription>
                                 </CardHeader>
 
                                 <CardContent className="p-8 pt-0">
-                                    <div className={`w-full flex items-center justify-center gap-2 py-4 rounded-2xl border font-bold transition-all duration-500 group-hover:bg-blue-600 group-hover:border-blue-500 group-hover:text-white group-hover:shadow-[0_0_30px_-5px_rgba(37,99,235,0.4)] group-hover:scale-[1.02] ${isDark ? 'bg-white/5 border-white/10 text-white' : 'bg-slate-50 border-slate-200 text-slate-900'}`}>
+                                    <div className={`w-full flex items-center justify-center gap-2 py-4 rounded-2xl border font-bold transition-all duration-500 group-hover:scale-[1.02] ${isDark ? 'bg-white/5 border-white/10 text-white group-hover:bg-blue-600 group-hover:border-blue-500' : 'bg-[#FAFAFA] border-[#D7CCC8] text-[#5D4037] group-hover:bg-[#5D4037] group-hover:border-[#5D4037] group-hover:text-white group-hover:shadow-[0_0_30px_-5px_rgba(93,64,55,0.4)]'}`}>
                                         <span>Enter Portal</span>
                                         <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                                     </div>
@@ -194,22 +194,22 @@ const Gateway = () => {
                             onClick={() => handleSelection('staff')}
                             className="group relative cursor-pointer opacity-0 animate-reveal-up stagger-2"
                         >
-                            <div className="absolute -inset-0.5 bg-gradient-to-br from-violet-600 to-purple-600 rounded-[2.5rem] blur opacity-0 group-hover:opacity-40 transition duration-1000 group-hover:duration-200" />
-                            <Card className={`relative h-full border backdrop-blur-3xl overflow-hidden rounded-[2rem] transition-all duration-500 group-hover:translate-y-[-8px] ${isDark ? 'bg-slate-900/40 border-slate-800/50 group-hover:bg-slate-900/60' : 'bg-white/80 border-slate-200 group-hover:bg-white shadow-xl shadow-slate-200/50'}`}>
-                                <div className="absolute inset-0 bg-gradient-to-br from-violet-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            <div className="absolute -inset-0.5 bg-gradient-to-br from-[#795548] to-[#8D6E63] rounded-[2.5rem] blur opacity-0 group-hover:opacity-40 transition duration-1000 group-hover:duration-200" />
+                            <Card className={`relative h-full border backdrop-blur-3xl overflow-hidden rounded-[2rem] transition-all duration-500 group-hover:translate-y-[-8px] ${isDark ? 'bg-slate-900/40 border-slate-800/50 group-hover:bg-slate-900/60' : 'bg-white/60 border-[#8D6E63]/20 group-hover:bg-white shadow-xl shadow-[#8D6E63]/10'}`}>
+                                <div className={`absolute inset-0 bg-gradient-to-br transition-opacity duration-500 opacity-0 group-hover:opacity-100 ${isDark ? 'from-violet-600/5' : 'from-[#795548]/5'} to-transparent`} />
 
                                 <CardHeader className="p-8 pb-4 text-center">
-                                    <div className="w-20 h-20 rounded-3xl bg-violet-500/10 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:-rotate-3 transition-all duration-500 border border-violet-500/20 shadow-2xl shadow-violet-500/10 text-violet-500">
+                                    <div className={`w-20 h-20 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:-rotate-3 transition-all duration-500 border shadow-2xl ${isDark ? 'bg-violet-500/10 border-violet-500/20 shadow-violet-500/10 text-violet-500' : 'bg-[#795548]/10 border-[#795548]/20 shadow-[#795548]/10 text-[#795548]'}`}>
                                         <Users className="w-10 h-10" />
                                     </div>
-                                    <CardTitle className={`text-2xl font-black mb-2 transition-colors ${isDark ? 'text-white' : 'text-slate-900'}`}>Store Staff</CardTitle>
-                                    <CardDescription className={`text-sm leading-relaxed px-4 font-medium transition-colors ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                                    <CardTitle className={`text-2xl font-black mb-2 transition-colors ${isDark ? 'text-white' : 'text-[#3E2723]'}`}>Store Staff</CardTitle>
+                                    <CardDescription className={`text-sm leading-relaxed px-4 font-medium transition-colors ${isDark ? 'text-slate-400' : 'text-[#5D4037]/70'}`}>
                                         Manage inventory, process tasks, and oversee daily operations.
                                     </CardDescription>
                                 </CardHeader>
 
                                 <CardContent className="p-8 pt-0">
-                                    <div className={`w-full flex items-center justify-center gap-2 py-4 rounded-2xl border font-bold transition-all duration-500 group-hover:bg-violet-600 group-hover:border-violet-500 group-hover:text-white group-hover:shadow-[0_0_30px_-5px_rgba(124,58,237,0.4)] group-hover:scale-[1.02] ${isDark ? 'bg-white/5 border-white/10 text-white' : 'bg-slate-50 border-slate-200 text-slate-900'}`}>
+                                    <div className={`w-full flex items-center justify-center gap-2 py-4 rounded-2xl border font-bold transition-all duration-500 group-hover:scale-[1.02] ${isDark ? 'bg-white/5 border-white/10 text-white group-hover:bg-violet-600 group-hover:border-violet-500' : 'bg-[#FAFAFA] border-[#D7CCC8] text-[#5D4037] group-hover:bg-[#795548] group-hover:border-[#795548] group-hover:text-white group-hover:shadow-[0_0_30px_-5px_rgba(121,85,72,0.4)]'}`}>
                                         <span>Staff Access</span>
                                         <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                                     </div>
@@ -224,22 +224,22 @@ const Gateway = () => {
                             onClick={() => handleSelection('delivery')}
                             className="group relative cursor-pointer opacity-0 animate-reveal-up stagger-3"
                         >
-                            <div className="absolute -inset-0.5 bg-gradient-to-br from-emerald-600 to-teal-600 rounded-[2.5rem] blur opacity-0 group-hover:opacity-40 transition duration-1000 group-hover:duration-200" />
-                            <Card className={`relative h-full border backdrop-blur-3xl overflow-hidden rounded-[2rem] transition-all duration-500 group-hover:translate-y-[-8px] ${isDark ? 'bg-slate-900/40 border-slate-800/50 group-hover:bg-slate-900/60' : 'bg-white/80 border-slate-200 group-hover:bg-white shadow-xl shadow-slate-200/50'}`}>
-                                <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            <div className="absolute -inset-0.5 bg-gradient-to-br from-[#8D6E63] to-[#A1887F] rounded-[2.5rem] blur opacity-0 group-hover:opacity-40 transition duration-1000 group-hover:duration-200" />
+                            <Card className={`relative h-full border backdrop-blur-3xl overflow-hidden rounded-[2rem] transition-all duration-500 group-hover:translate-y-[-8px] ${isDark ? 'bg-slate-900/40 border-slate-800/50 group-hover:bg-slate-900/60' : 'bg-white/60 border-[#8D6E63]/20 group-hover:bg-white shadow-xl shadow-[#8D6E63]/10'}`}>
+                                <div className={`absolute inset-0 bg-gradient-to-br transition-opacity duration-500 opacity-0 group-hover:opacity-100 ${isDark ? 'from-emerald-600/5' : 'from-[#8D6E63]/5'} to-transparent`} />
 
                                 <CardHeader className="p-8 pb-4 text-center">
-                                    <div className="w-20 h-20 rounded-3xl bg-emerald-500/10 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 border border-emerald-500/20 shadow-2xl shadow-emerald-500/10 text-emerald-500">
+                                    <div className={`w-20 h-20 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 border shadow-2xl ${isDark ? 'bg-emerald-500/10 border-emerald-500/20 shadow-emerald-500/10 text-emerald-500' : 'bg-[#8D6E63]/10 border-[#8D6E63]/20 shadow-[#8D6E63]/10 text-[#8D6E63]'}`}>
                                         <Truck className="w-10 h-10" />
                                     </div>
-                                    <CardTitle className={`text-2xl font-black mb-2 transition-colors ${isDark ? 'text-white' : 'text-slate-900'}`}>Delivery Fleet</CardTitle>
-                                    <CardDescription className={`text-sm leading-relaxed px-4 font-medium transition-colors ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                                    <CardTitle className={`text-2xl font-black mb-2 transition-colors ${isDark ? 'text-white' : 'text-[#3E2723]'}`}>Delivery Fleet</CardTitle>
+                                    <CardDescription className={`text-sm leading-relaxed px-4 font-medium transition-colors ${isDark ? 'text-slate-400' : 'text-[#5D4037]/70'}`}>
                                         Real-time tracking, order fulfillment, and route optimization.
                                     </CardDescription>
                                 </CardHeader>
 
                                 <CardContent className="p-8 pt-0">
-                                    <div className={`w-full flex items-center justify-center gap-2 py-4 rounded-2xl border font-bold transition-all duration-500 group-hover:bg-emerald-600 group-hover:border-emerald-500 group-hover:text-white group-hover:shadow-[0_0_30px_-5px_rgba(5,150,105,0.4)] group-hover:scale-[1.02] ${isDark ? 'bg-white/5 border-white/10 text-white' : 'bg-slate-50 border-slate-200 text-slate-900'}`}>
+                                    <div className={`w-full flex items-center justify-center gap-2 py-4 rounded-2xl border font-bold transition-all duration-500 group-hover:scale-[1.02] ${isDark ? 'bg-white/5 border-white/10 text-white group-hover:bg-emerald-600 group-hover:border-emerald-500' : 'bg-[#FAFAFA] border-[#D7CCC8] text-[#5D4037] group-hover:bg-[#8D6E63] group-hover:border-[#8D6E63] group-hover:text-white group-hover:shadow-[0_0_30px_-5px_rgba(141,110,99,0.4)]'}`}>
                                         <span>Join Fleet</span>
                                         <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                                     </div>
@@ -253,15 +253,15 @@ const Gateway = () => {
 
                 {(view === 'admin' || view === 'staff') && (
                     <div className="animate-reveal-up flex justify-center">
-                        <Card className={`w-full max-w-md border backdrop-blur-3xl shadow-2xl rounded-[2.5rem] overflow-hidden relative transition-all duration-500 ${isDark ? 'bg-slate-900/60 border-slate-800/80 shadow-slate-950/50' : 'bg-white border-slate-200 shadow-slate-200/50'}`}>
-                            <div className={`absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r transition-all duration-500 ${view === 'admin' ? 'from-blue-500 to-indigo-500' : 'from-violet-500 to-pink-500'}`} />
+                        <Card className={`w-full max-w-md border backdrop-blur-3xl shadow-2xl rounded-[2.5rem] overflow-hidden relative transition-all duration-500 ${isDark ? 'bg-slate-900/60 border-slate-800/80 shadow-slate-950/50' : 'bg-white/80 border-[#8D6E63]/20 shadow-[#8D6E63]/10'}`}>
+                            <div className={`absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r transition-all duration-500 ${view === 'admin' ? 'from-[#5D4037] to-[#8D6E63]' : 'from-[#795548] to-[#A1887F]'}`} />
 
                             <CardHeader className="text-center p-10 pb-4">
-                                <div className={`w-20 h-20 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-2xl transition-all duration-500 ${view === 'admin' ? 'bg-blue-500/10 border-blue-500/20 text-blue-500' : 'bg-violet-500/10 border-violet-500/20 text-violet-500'} border`}>
+                                <div className={`w-20 h-20 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-2xl transition-all duration-500 ${view === 'admin' ? (isDark ? 'bg-blue-500/10 border-blue-500/20 text-blue-500' : 'bg-[#5D4037]/10 border-[#5D4037]/20 text-[#5D4037]') : (isDark ? 'bg-violet-500/10 border-violet-500/20 text-violet-500' : 'bg-[#795548]/10 border-[#795548]/20 text-[#795548]')} border`}>
                                     {view === 'admin' ? <Shield className="w-10 h-10" /> : <Users className="w-10 h-10" />}
                                 </div>
-                                <CardTitle className={`text-3xl font-black transition-colors ${isDark ? 'text-white' : 'text-slate-900'}`}>{view === 'admin' ? 'Admin Portal' : 'Staff Login'}</CardTitle>
-                                <CardDescription className={`font-medium transition-colors ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                                <CardTitle className={`text-3xl font-black transition-colors ${isDark ? 'text-white' : 'text-[#3E2723]'}`}>{view === 'admin' ? 'Admin Portal' : 'Staff Login'}</CardTitle>
+                                <CardDescription className={`font-medium transition-colors ${isDark ? 'text-slate-400' : 'text-[#5D4037]/70'}`}>
                                     {view === 'admin' ? '"Access granted to authorized commanders."' : 'Internal staff authentication point.'}
                                 </CardDescription>
                             </CardHeader>
@@ -269,13 +269,13 @@ const Gateway = () => {
                             <CardContent className="p-10 pt-4 space-y-6">
                                 {view === 'admin' ? (
                                     <>
-                                        <div className={`border rounded-2xl p-5 flex items-start gap-4 transition-all duration-500 ${isDark ? 'bg-blue-500/10 border-blue-500/20' : 'bg-blue-50 border-blue-100'}`}>
-                                            <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-colors ${isDark ? 'bg-blue-500/20 text-blue-400' : 'bg-blue-100 text-blue-600'}`}>
+                                        <div className={`border rounded-2xl p-5 flex items-start gap-4 transition-all duration-500 ${isDark ? 'bg-blue-500/10 border-blue-500/20' : 'bg-[#EFEBE9] border-[#D7CCC8]'}`}>
+                                            <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-colors ${isDark ? 'bg-blue-500/20 text-blue-400' : 'bg-white text-[#5D4037]'}`}>
                                                 <Key className="w-5 h-5" />
                                             </div>
                                             <div className="space-y-1">
-                                                <p className={`text-xs font-bold uppercase tracking-widest transition-colors ${isDark ? 'text-blue-300' : 'text-blue-600'}`}>Master Credentials</p>
-                                                <div className={`flex items-center gap-4 text-sm font-mono transition-colors ${isDark ? 'text-white/90' : 'text-slate-900'}`}>
+                                                <p className={`text-xs font-bold uppercase tracking-widest transition-colors ${isDark ? 'text-blue-300' : 'text-[#5D4037]'}`}>Master Credentials</p>
+                                                <div className={`flex items-center gap-4 text-sm font-mono transition-colors ${isDark ? 'text-white/90' : 'text-[#3E2723]'}`}>
                                                     <span>Username: admin</span>
                                                     <span className="opacity-30">,</span>
                                                     <span>Password: admin</span>
@@ -285,33 +285,33 @@ const Gateway = () => {
 
                                         <div className="space-y-4">
                                             <div className="space-y-2">
-                                                <Label className={`text-[10px] font-bold uppercase tracking-[0.2em] ml-1 transition-colors ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Identity</Label>
+                                                <Label className={`text-[10px] font-bold uppercase tracking-[0.2em] ml-1 transition-colors ${isDark ? 'text-slate-400' : 'text-[#8D6E63]'}`}>Identity</Label>
                                                 <div className="relative group">
-                                                    <LayoutDashboard className={`absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 transition-colors ${isDark ? 'text-slate-500 group-focus-within:text-blue-400' : 'text-slate-400 group-focus-within:text-blue-600'}`} />
+                                                    <LayoutDashboard className={`absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 transition-colors ${isDark ? 'text-slate-500 group-focus-within:text-blue-400' : 'text-[#A1887F] group-focus-within:text-[#5D4037]'}`} />
                                                     <Input
                                                         placeholder="admin"
                                                         value={adminData.username}
                                                         onChange={(e) => setAdminData({ ...adminData, username: e.target.value })}
-                                                        className={`h-14 pl-12 rounded-2xl transition-all border-2 ${isDark ? 'bg-white/5 border-slate-800 text-white focus:ring-blue-500/40 focus:border-blue-500/40' : 'bg-slate-50 border-slate-100 text-slate-900 focus:ring-blue-500/20 focus:border-blue-500/50'}`}
+                                                        className={`h-14 pl-12 rounded-2xl transition-all border-2 ${isDark ? 'bg-white/5 border-slate-800 text-white focus:ring-blue-500/40 focus:border-blue-500/40' : 'bg-[#FAFAFA] border-[#D7CCC8] text-[#3E2723] focus:ring-[#8D6E63]/20 focus:border-[#8D6E63]/50'}`}
                                                     />
                                                 </div>
                                             </div>
                                             <div className="space-y-2">
-                                                <Label className={`text-[10px] font-bold uppercase tracking-[0.2em] ml-1 transition-colors ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Security Key</Label>
+                                                <Label className={`text-[10px] font-bold uppercase tracking-[0.2em] ml-1 transition-colors ${isDark ? 'text-slate-400' : 'text-[#8D6E63]'}`}>Security Key</Label>
                                                 <div className="relative group">
-                                                    <Key className={`absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 transition-colors ${isDark ? 'text-slate-500 group-focus-within:text-blue-400' : 'text-slate-400 group-focus-within:text-blue-600'}`} />
+                                                    <Key className={`absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 transition-colors ${isDark ? 'text-slate-500 group-focus-within:text-blue-400' : 'text-[#A1887F] group-focus-within:text-[#5D4037]'}`} />
                                                     <Input
                                                         type="password"
                                                         placeholder="••••••••"
                                                         value={adminData.password}
                                                         onChange={(e) => setAdminData({ ...adminData, password: e.target.value })}
-                                                        className={`h-14 pl-12 rounded-2xl transition-all border-2 ${isDark ? 'bg-white/5 border-slate-800 text-white focus:ring-blue-500/40 focus:border-blue-500/40' : 'bg-slate-50 border-slate-100 text-slate-900 focus:ring-blue-500/20 focus:border-blue-500/50'}`}
+                                                        className={`h-14 pl-12 rounded-2xl transition-all border-2 ${isDark ? 'bg-white/5 border-slate-800 text-white focus:ring-blue-500/40 focus:border-blue-500/40' : 'bg-[#FAFAFA] border-[#D7CCC8] text-[#3E2723] focus:ring-[#8D6E63]/20 focus:border-[#8D6E63]/50'}`}
                                                     />
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <Button onClick={handleAdminLogin} className={`w-full font-black h-14 rounded-2xl shadow-2xl group transition-all duration-300 ${isDark ? 'bg-blue-600 hover:bg-blue-500 text-white shadow-blue-600/30' : 'bg-blue-600 hover:bg-blue-700 text-white shadow-blue-600/20'}`}>
+                                        <Button onClick={handleAdminLogin} className={`w-full font-black h-14 rounded-2xl shadow-2xl group transition-all duration-300 ${isDark ? 'bg-blue-600 hover:bg-blue-500 text-white shadow-blue-600/30' : 'bg-[#5D4037] hover:bg-[#4E342E] text-white shadow-[#5D4037]/20'}`}>
                                             <span>Initialize Dashboard</span>
                                             <ChevronRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
                                         </Button>
@@ -320,32 +320,32 @@ const Gateway = () => {
                                     <form onSubmit={handleStaffLogin} className="space-y-6">
                                         <div className="space-y-4">
                                             <div className="space-y-2">
-                                                <Label className={`text-[10px] font-bold uppercase tracking-[0.2em] ml-1 transition-colors ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Staff Identity</Label>
+                                                <Label className={`text-[10px] font-bold uppercase tracking-[0.2em] ml-1 transition-colors ${isDark ? 'text-slate-400' : 'text-[#8D6E63]'}`}>Staff Identity</Label>
                                                 <div className="relative group">
-                                                    <Users className={`absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 transition-colors ${isDark ? 'text-slate-500 group-focus-within:text-violet-400' : 'text-slate-400 group-focus-within:text-violet-600'}`} />
+                                                    <Users className={`absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 transition-colors ${isDark ? 'text-slate-500 group-focus-within:text-violet-400' : 'text-[#A1887F] group-focus-within:text-[#795548]'}`} />
                                                     <Input
                                                         placeholder="username"
                                                         value={staffData.username}
                                                         onChange={(e) => setStaffData({ ...staffData, username: e.target.value })}
-                                                        className={`h-14 pl-12 rounded-2xl transition-all border-2 ${isDark ? 'bg-white/5 border-slate-800 text-white focus:ring-violet-500/40 focus:border-violet-500/40' : 'bg-slate-50 border-slate-100 text-slate-900 focus:ring-violet-500/20 focus:border-violet-500/50'}`}
+                                                        className={`h-14 pl-12 rounded-2xl transition-all border-2 ${isDark ? 'bg-white/5 border-slate-800 text-white focus:ring-violet-500/40 focus:border-violet-500/40' : 'bg-[#FAFAFA] border-[#D7CCC8] text-[#3E2723] focus:ring-[#795548]/20 focus:border-[#795548]/50'}`}
                                                     />
                                                 </div>
                                             </div>
                                             <div className="space-y-2">
-                                                <Label className={`text-[10px] font-bold uppercase tracking-[0.2em] ml-1 transition-colors ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Security Code</Label>
+                                                <Label className={`text-[10px] font-bold uppercase tracking-[0.2em] ml-1 transition-colors ${isDark ? 'text-slate-400' : 'text-[#8D6E63]'}`}>Security Code</Label>
                                                 <div className="relative group">
-                                                    <Lock size={16} className={`absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 transition-colors ${isDark ? 'text-slate-500 group-focus-within:text-violet-400' : 'text-slate-400 group-focus-within:text-violet-600'}`} />
+                                                    <Lock size={16} className={`absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 transition-colors ${isDark ? 'text-slate-500 group-focus-within:text-violet-400' : 'text-[#A1887F] group-focus-within:text-[#795548]'}`} />
                                                     <Input
                                                         type={showPassword ? "text" : "password"}
                                                         placeholder="••••••••"
                                                         value={staffData.password}
                                                         onChange={(e) => setStaffData({ ...staffData, password: e.target.value })}
-                                                        className={`h-14 pl-12 pr-12 rounded-2xl transition-all border-2 ${isDark ? 'bg-white/5 border-slate-800 text-white focus:ring-violet-500/40 focus:border-violet-500/40' : 'bg-slate-50 border-slate-100 text-slate-900 focus:ring-violet-500/20 focus:border-violet-500/50'}`}
+                                                        className={`h-14 pl-12 pr-12 rounded-2xl transition-all border-2 ${isDark ? 'bg-white/5 border-slate-800 text-white focus:ring-violet-500/40 focus:border-violet-500/40' : 'bg-[#FAFAFA] border-[#D7CCC8] text-[#3E2723] focus:ring-[#795548]/20 focus:border-[#795548]/50'}`}
                                                     />
                                                     <button
                                                         type="button"
                                                         onClick={() => setShowPassword(!showPassword)}
-                                                        className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-violet-500"
+                                                        className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-[#5D4037]"
                                                     >
                                                         {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                                                     </button>
@@ -353,7 +353,7 @@ const Gateway = () => {
                                             </div>
                                         </div>
 
-                                        <Button type="submit" disabled={loading} className={`w-full font-black h-14 rounded-2xl shadow-2xl group transition-all duration-300 ${isDark ? 'bg-violet-600 hover:bg-violet-500 text-white shadow-violet-600/30' : 'bg-violet-600 hover:bg-violet-700 text-white shadow-violet-600/20'}`}>
+                                        <Button type="submit" disabled={loading} className={`w-full font-black h-14 rounded-2xl shadow-2xl group transition-all duration-300 ${isDark ? 'bg-violet-600 hover:bg-violet-500 text-white shadow-violet-600/30' : 'bg-[#795548] hover:bg-[#5D4037] text-white shadow-[#795548]/20'}`}>
                                             {loading ? "Verifying..." : "Authorized Entrance"}
                                             <ChevronRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
                                         </Button>
@@ -374,7 +374,7 @@ const Gateway = () => {
 
                 {/* Footer Credits */}
                 <div className="mt-20 text-center animate-reveal-up stagger-4 opacity-30 hover:opacity-100 transition-opacity duration-700">
-                    <p className={`text-[10px] font-bold uppercase tracking-[0.4em] transition-colors ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+                    <p className={`text-[10px] font-bold uppercase tracking-[0.4em] transition-colors ${isDark ? 'text-slate-500' : 'text-[#8D6E63]'}`}>
                         &copy; 2024 Green Mart Digital Ecosystem &bull; All Systems Operational
                     </p>
                 </div>
