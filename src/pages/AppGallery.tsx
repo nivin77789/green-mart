@@ -29,7 +29,7 @@ const AppGallery = () => {
   }, []);
 
   return (
-    <div className="h-screen overflow-hidden bg-[#FDFCF5] flex flex-col">
+    <div className="h-screen overflow-hidden bg-[#FDFCF5] dark:bg-slate-950 flex flex-col">
       <Navbar />
 
       {/* Floating decorative elements & Noise */}

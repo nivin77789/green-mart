@@ -122,7 +122,7 @@ const AppGrid = ({ isManaging = false, searchQuery = "" }: { isManaging?: boolea
 
       <div className="flex flex-col h-full w-full rounded-[2.5rem] bg-white/60 dark:bg-black/40 backdrop-blur-3xl border border-[#D7CCC8]/30 dark:border-white/5 shadow-[0_8px_32px_rgba(141,110,99,0.1)] transition-all duration-500 hover:shadow-[0_16px_48px_rgba(141,110,99,0.15)] hover:bg-white/70 dark:hover:bg-black/50 overflow-hidden group/container relative">
         {/* Subtle inner glow */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent pointer-events-none opacity-50" />
+        <div className="absolute inset-0 bg-gradient-to-br from-white/40 dark:from-white/5 to-transparent pointer-events-none opacity-50" />
 
         <div className="flex-1 overflow-y-auto p-6 sm:p-8 scrollbar-thin scrollbar-thumb-[#D7CCC8] hover:scrollbar-thumb-[#A1887F] scrollbar-track-transparent relative z-10">
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-6 sm:gap-8">

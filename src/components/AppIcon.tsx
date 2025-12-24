@@ -18,7 +18,7 @@ const AppIcon = ({ icon: Icon, label, colorClass, delay = 0 }: AppIconProps) => 
       >
         <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-white drop-shadow-sm" strokeWidth={1.5} />
       </div>
-      <span className="text-sm font-medium text-foreground/80 group-hover:text-foreground transition-colors text-center leading-tight">
+      <span className="text-sm font-medium text-foreground/80 dark:text-slate-300 group-hover:text-foreground dark:group-hover:text-white transition-colors text-center leading-tight">
         {label}
       </span>
     </div>
