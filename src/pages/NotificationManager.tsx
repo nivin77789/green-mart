@@ -57,12 +57,12 @@ const NotificationManager = () => {
                         'Authorization': `key=${serverKey}`
                     },
                     body: JSON.stringify({
-                        to: "/topics/greenmart_all", // Target all subscribed users
+                        to: "/topics/GreenMart_all", // Target all subscribed users
                         notification: {
                             title: title,
                             body: message,
                             icon: "/logo.png",
-                            click_action: "https://greenmart.in"
+                            click_action: "https://GreenMart.in"
                         },
                         data: {
                             type: type,

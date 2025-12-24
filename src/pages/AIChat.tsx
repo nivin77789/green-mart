@@ -53,7 +53,7 @@ interface Message {
     timestamp: string;
 }
 
-const STORAGE_KEY = 'greenmart_ai_chat_history';
+const STORAGE_KEY = 'GreenMart_ai_chat_history';
 
 // --- CHART COMPONENT ---
 const ChatChart = ({ type, data }: { type: string, data: any }) => {

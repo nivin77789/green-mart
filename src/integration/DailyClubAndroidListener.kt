@@ -1,4 +1,4 @@
-package com.example.greenmart
+package com.example.GreenMart
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -95,7 +95,7 @@ class NotificationListener(private val context: Context) {
     }
 
     companion object {
-        private const val CHANNEL_ID = "greenmart_broadcasts"
+        private const val CHANNEL_ID = "GreenMart_broadcasts"
     }
 }
 

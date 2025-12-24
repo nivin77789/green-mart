@@ -150,7 +150,7 @@ const Gateway = () => {
                         <span>Unified Access Control</span>
                     </div>
                     <h1 className={`text-5xl sm:text-7xl font-black tracking-tighter leading-[0.9] text-balance transition-colors duration-300 ${isDark ? 'text-white' : 'text-slate-900'}`}>
-                        Daily<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-indigo-500 to-violet-500">Club</span>
+                        Green<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-indigo-500 to-violet-500">Mart</span>
                     </h1>
                     <p className={`text-lg sm:text-xl font-medium max-w-2xl mx-auto leading-relaxed transition-colors duration-300 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
                         One ecosystem. Infinite possibilities. Select your access point.
@@ -269,16 +269,16 @@ const Gateway = () => {
                             <CardContent className="p-10 pt-4 space-y-6">
                                 {view === 'admin' ? (
                                     <>
-                                        <div className={`border rounded-2xl p-5 flex items-start gap-4 animate-glow-pulse transition-all duration-500 ${isDark ? 'bg-blue-500/10 border-blue-500/20' : 'bg-blue-50 border-blue-100'}`}>
+                                        <div className={`border rounded-2xl p-5 flex items-start gap-4 transition-all duration-500 ${isDark ? 'bg-blue-500/10 border-blue-500/20' : 'bg-blue-50 border-blue-100'}`}>
                                             <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-colors ${isDark ? 'bg-blue-500/20 text-blue-400' : 'bg-blue-100 text-blue-600'}`}>
                                                 <Key className="w-5 h-5" />
                                             </div>
                                             <div className="space-y-1">
                                                 <p className={`text-xs font-bold uppercase tracking-widest transition-colors ${isDark ? 'text-blue-300' : 'text-blue-600'}`}>Master Credentials</p>
                                                 <div className={`flex items-center gap-4 text-sm font-mono transition-colors ${isDark ? 'text-white/90' : 'text-slate-900'}`}>
-                                                    <span>User: admin</span>
-                                                    <span className="opacity-30">|</span>
-                                                    <span>Pass: admin</span>
+                                                    <span>Username: admin</span>
+                                                    <span className="opacity-30">,</span>
+                                                    <span>Password: admin</span>
                                                 </div>
                                             </div>
                                         </div>

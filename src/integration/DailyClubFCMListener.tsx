@@ -35,7 +35,7 @@ export const FCMPushListener = () => {
 
                     if (token) {
                         console.log('FCM Token:', token);
-                        // In a real app, you would send this token to your backend to subscribe it to the topic "greenmart_all"
+                        // In a real app, you would send this token to your backend to subscribe it to the topic "GreenMart_all"
                         // Since we don't have a backend to subscribe, clients must handle subscription differently or
                         // the "Sender" must send to individual tokens (Impractical without backend).
                         //

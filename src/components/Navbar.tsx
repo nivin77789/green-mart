@@ -94,7 +94,7 @@ const Navbar = () => {
 
   const displayName = userRole === "admin" ? "Administrator" : (staffName || "Staff Member");
   const initials = displayName.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
-  const userEmail = userRole === "admin" ? "admin@greenmart.com" : `${staffName?.toLowerCase().replace(/\s/g, '') || 'staff'}@greenmart.staff`;
+  const userEmail = userRole === "admin" ? "admin@GreenMart.com" : `${staffName?.toLowerCase().replace(/\s/g, '') || 'staff'}@GreenMart.staff`;
 
   const allApps = allAppsRaw.filter(app => {
     if (userRole === "admin") return true;

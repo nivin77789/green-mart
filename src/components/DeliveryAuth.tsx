@@ -154,7 +154,7 @@ export const DeliveryAuth = ({ onLogin }: AuthProps) => {
                             <Input
                                 className="h-14 rounded-2xl bg-slate-50/50 dark:bg-slate-800/50 border-slate-100 dark:border-slate-700/50 font-bold focus:ring-2 focus:ring-indigo-500 transition-all px-5"
                                 type="email"
-                                placeholder="name@greenmart.in"
+                                placeholder="name@GreenMart.in"
                                 value={formData.email}
                                 onChange={e => setFormData({ ...formData, email: e.target.value })}
                             />

@@ -198,7 +198,7 @@ const DataTable = ({ data, title, icon: Icon, productLookup, stockLookup }: any)
                 alternateRowStyles: { fillColor: [248, 250, 252] },
                 columnStyles: { 0: { fontStyle: 'bold', cellWidth: 40 }, 1: { cellWidth: 100 }, 2: { cellWidth: 60 }, 3: { halign: 'center', cellWidth: 40 } }
             });
-            doc.save(`greenmart_${title.toLowerCase()}_report.pdf`);
+            doc.save(`GreenMart_${title.toLowerCase()}_report.pdf`);
         } catch (e: any) {
             console.error(e);
             alert("PDF Error: " + e.message);
