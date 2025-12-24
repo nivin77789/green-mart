@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 import Navbar from "@/components/Navbar";
+import { useLocation } from 'react-router-dom';
 import { Send, User, Sparkles, StopCircle, Trash2, BarChart3, PieChart, Activity } from 'lucide-react';
 import firebase from "firebase/compat/app";
 import "firebase/compat/database";
@@ -243,51 +244,146 @@ const AIChat = () => {
     };
 
     const fetchContextSummary = async () => {
-        // Use local storeData if available, otherwise fetch minimal
+        const db = firebase.database();
+
+        // Fetch or use cached data
         let orders = storeData?.order;
         let products = storeData?.products;
+        let staff = null;
+        let employees = null;
+        let stock = null;
 
         if (!orders || !products) {
-            const db = firebase.database();
             const oSnap = await db.ref('root/order').orderByKey().limitToLast(100).once('value');
             orders = oSnap.val();
             const pSnap = await db.ref('root/products').limitToFirst(50).once('value');
             products = pSnap.val();
         }
 
-        // Calculate Totals (Excluding Cancelled)
+        // Fetch additional data for detailed reporting
+        const sSnap = await db.ref('root/staff').once('value');
+        staff = sSnap.val();
+
+        const eSnap = await db.ref('root/nexus_hr/employees').once('value');
+        employees = eSnap.val();
+
+        // Stock (fetch low stock candidates if possible, or full list)
+        const stSnap = await db.ref('root/stock').once('value');
+        stock = stSnap.val();
+
+        // 1. Order Stats
         let totalRevenue = 0;
         let validOrderCount = 0;
+        let statusBreakdown: Record<string, number> = { delivered: 0, pending: 0, cancelled: 0 };
         const allOrders = Object.entries(orders || {});
+
+        const todayDate = new Date().toLocaleDateString('en-CA');
+        let ordersTodayCount = 0;
+        let revenueToday = 0;
 
         allOrders.forEach(([_, o]: [string, any]) => {
             const status = (o.status || '').toLowerCase();
-            if (!status.includes('cancel')) {
-                let amt = 0;
-                if (typeof o.total === 'string') {
-                    amt = parseFloat(o.total.split('-')[0]) || 0;
-                } else {
-                    amt = parseFloat(o.total) || 0;
+            const ts = o.timestamp || o.createdAt || Date.now();
+            const d = new Date(ts).toLocaleDateString('en-CA');
+
+            let amt = 0;
+            if (typeof o.total === 'string') {
+                amt = parseFloat(o.total.split('-')[0]) || 0;
+            } else {
+                amt = parseFloat(o.total) || 0;
+            }
+
+            if (d === todayDate) {
+                if (!status.includes('cancel')) {
+                    revenueToday += amt;
+                    ordersTodayCount++;
                 }
+            }
+
+            if (!status.includes('cancel')) {
                 totalRevenue += amt;
                 validOrderCount++;
             }
+
+            if (status.includes('deliver') || status.includes('complete')) statusBreakdown.delivered++;
+            else if (status.includes('cancel')) statusBreakdown.cancelled++;
+            else statusBreakdown.pending++;
         });
 
-        const orderList = allOrders.slice(-15).map(([id, o]: [string, any]) =>
-            `- Order #${id}: ${o.status || 'Pending'} (${o.name || 'Guest'}, ₹${o.total || 0})`
+        // 2. Staff Stats
+        const staffList = Object.values(staff || {});
+        const totalStaff = staffList.length;
+        const activeStaff = staffList.filter((s: any) => s.status === 'Active').length;
+        const staffNames = staffList.map((s: any) => `${s.name} (${s.role})`).join(', ');
+
+        // 3. Delivery Stats (Nexus HR)
+        const employeeList = Object.values(employees || {});
+        const deliveryPartners = employeeList.filter((e: any) => e.role === 'Ride' || e.department === 'Logistics');
+        const totalDrivers = deliveryPartners.length;
+        const onlineDrivers = deliveryPartners.filter((e: any) => e.status === 'Active').length; // Simplified 'Online' check
+
+        // 4. Inventory Highlights (Low Stock)
+        let lowStockItems: string[] = [];
+        if (stock) {
+            Object.entries(stock).forEach(([prodId, variants]: [string, any]) => {
+                Object.values(variants).forEach((v: any) => {
+                    const q = parseInt(v.quantity) || 0;
+                    if (q <= 5) {
+                        // Find product name if possible
+                        const pName = products?.[prodId]?.name || prodId;
+                        lowStockItems.push(`${pName} (Qty: ${q})`);
+                    }
+                });
+            });
+        }
+
+        const orderList = allOrders.slice(-10).map(([id, o]: [string, any]) =>
+            `- Order #${id}: ${o.status || 'Pending'} (${o.name || 'Guest'}, ₹${o.total || '0'})`
         ).join('\n');
 
-        return `\nCURRENT STORE DATA SNAPSHOT:\n[Summary Stats (Excluding Cancelled)]\nTotal Revenue: ₹${totalRevenue.toLocaleString()}\nTotal Valid Orders: ${validOrderCount}\n\n[Recent Orders]\n${orderList}\n\n[System Note]\nYou can display charts. If the user asks for a visualization, return one of these tags strictly:\n[CHART:revenue] - For sales/revenue trends\n[CHART:status] - For order status breakdown\n[CHART:products] - For top selling products\n`;
+        return `
+CURRENT STORE DATA SNAPSHOT (${todayDate}):
+
+[Business Today]
+Revenue Today: ₹${revenueToday.toLocaleString()}
+Orders Today: ${ordersTodayCount}
+
+[Overall Order Stats (Recent)]
+Total Valid Orders (Lifetime/Loaded): ${validOrderCount}
+Status Breakdown: Delivered: ${statusBreakdown.delivered}, Pending: ${statusBreakdown.pending}, Cancelled: ${statusBreakdown.cancelled}
+
+[Staff Details]
+Total Staff: ${totalStaff} (Active: ${activeStaff})
+Staff Members: ${staffNames}
+
+[Delivery Operations]
+Total Delivery Partners: ${totalDrivers}
+Partners Online/Active: ${onlineDrivers}
+
+[Inventory Warnings (Low Stock <= 5)]
+${lowStockItems.slice(0, 10).join(', ') || "No critical low stock items."} ${lowStockItems.length > 10 ? `(+${lowStockItems.length - 10} more)` : ''}
+
+[Recent Orders Log]
+${orderList}
+
+[System Note]
+You can display charts. If the user asks for a visualization, return one of these tags strictly:
+[CHART:revenue] - For sales/revenue trends
+[CHART:status] - For order status breakdown
+[CHART:products] - For top selling products
+`;
     };
 
-    const handleSend = async () => {
-        if (!input.trim()) return;
+    const location = useLocation(); // Add hook
+
+    const handleSend = async (manualInput?: string) => {
+        const textToSend = manualInput || input;
+        if (!textToSend.trim()) return;
 
         const userMsg: Message = {
             id: Date.now().toString(),
             role: 'user',
-            content: input,
+            content: textToSend,
             timestamp: new Date().toISOString()
         };
 
@@ -331,6 +427,15 @@ const AIChat = () => {
             setIsTyping(false);
         }
     };
+
+    // Auto-trigger from location state
+    useEffect(() => {
+        if (location.state?.prompt) {
+            handleSend(location.state.prompt);
+            // Clear state to prevent re-trigger on simple re-renders (though router location is stable)
+            window.history.replaceState({}, document.title);
+        }
+    }, []);
 
     const handleKeyDown = (e: React.KeyboardEvent) => {
         if (e.key === 'Enter' && !e.shiftKey) {
@@ -489,7 +594,7 @@ const AIChat = () => {
                         />
 
                         <button
-                            onClick={handleSend}
+                            onClick={() => handleSend()}
                             disabled={!input.trim() && !isTyping}
                             className={`mb-1 w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 ${input.trim()
                                 ? 'bg-blue-600 text-white shadow-md hover:bg-blue-700 hover:scale-105 active:scale-95'

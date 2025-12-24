@@ -37,17 +37,17 @@ const defaultAppItems = [
   { icon: Users, label: "Employee Management", path: "/employee-management", color: "bg-indigo-600" },
   { icon: LayoutDashboard, label: "Report", path: "/overview", color: "bg-cyan-500" },
   { icon: Sparkles, label: "AI Chat", path: "/chat", color: "bg-blue-600" },
-  { icon: ClipboardList, label: "Order Management", path: "/orders", color: "bg-pink-500" },
-  { icon: Truck, label: "Delivery Screen", path: "/delivery", color: "bg-emerald-500" },
+  { icon: ClipboardList, label: "Orders", path: "/orders", color: "bg-pink-500" },
+  { icon: Truck, label: "Deliver", path: "/delivery", color: "bg-emerald-500" },
   { icon: Package, label: "Stocks", path: "/stock-entry", color: "bg-blue-500" },
   { icon: ShoppingBag, label: "Products", path: "/product-entry", color: "bg-violet-500" },
-  { icon: Building2, label: "Back Office", path: "/back-office", color: "bg-teal-500" },
+  { icon: Building2, label: "Purchase", path: "/back-office", color: "bg-teal-500" },
   { icon: Crown, label: "Wallet", path: "/premium-entry", color: "bg-yellow-500" },
-  { icon: Star, label: "Rating", path: "/rating-entry", color: "bg-orange-500" },
+  { icon: Star, label: "Promotions", path: "/rating-entry", color: "bg-orange-500" },
   { icon: Keyboard, label: "SEO", path: "/keyword-entry", color: "bg-indigo-500" },
   { icon: Grid3X3, label: "Task Manager", path: "/tasks", color: "bg-violet-600" },
   { icon: Bell, label: "Notification", path: "/notifications", color: "bg-red-500" },
-  { icon: Users, label: "Staffes", path: "/staffes", color: "bg-cyan-600" },
+  { icon: Users, label: "Staffs", path: "/staffes", color: "bg-cyan-600" },
 ];
 
 const Navbar = () => {

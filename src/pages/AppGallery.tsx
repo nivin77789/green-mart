@@ -28,6 +28,44 @@ const AppGallery = () => {
     return () => settingsRef.off();
   }, []);
 
+  const [dailyStats, setDailyStats] = useState({ revenue: 0, orders: 0 });
+
+  useEffect(() => {
+    const db = firebase.database();
+    const ordersRef = db.ref("root/order");
+
+    const onValueChange = (snapshot: any) => {
+      const data = snapshot.val();
+      if (data) {
+        const todayStr = new Date().toLocaleDateString('en-CA'); // YYYY-MM-DD
+        let rev = 0;
+        let count = 0;
+
+        Object.values(data).forEach((o: any) => {
+          const ts = o.timestamp || o.createdAt || Date.now();
+          const d = new Date(ts).toLocaleDateString('en-CA');
+          if (d === todayStr) {
+            const status = (o.status || '').toLowerCase();
+            if (!status.includes('cancel')) {
+              count++;
+              let amt = 0;
+              if (typeof o.total === 'string') {
+                amt = parseFloat(o.total.split('-')[0]) || 0;
+              } else {
+                amt = parseFloat(o.total) || 0;
+              }
+              rev += amt;
+            }
+          }
+        });
+        setDailyStats({ revenue: rev, orders: count });
+      }
+    };
+
+    ordersRef.on("value", onValueChange);
+    return () => ordersRef.off("value", onValueChange);
+  }, []);
+
   return (
     <div className="h-screen overflow-hidden bg-[#FDFCF5] dark:bg-slate-950 flex flex-col">
       <Navbar />
@@ -53,7 +91,24 @@ const AppGallery = () => {
           <div className="xl:col-span-3 flex flex-col gap-4 min-h-0 flex-1 order-1 xl:order-none">
             {aiBannerEnabled && (
               <div className="flex-shrink-0 animate-in fade-in slide-in-from-top-4 duration-500">
-                <Link to="/chat" className="group relative block w-full bg-gradient-to-br from-[#5D4037] via-[#795548] to-[#8D6E63] rounded-2xl p-4 md:p-5 shadow-xl shadow-[#5D4037]/20 overflow-hidden transition-all duration-500 hover:shadow-[#5D4037]/40 hover:-translate-y-1">
+                <Link to="/chat" state={{
+                  prompt: `give comprehensive daily business performance report for today.
+Include a clear summary of overall operations covering:
+
+• Total revenue generated
+• Total number of orders received
+• Breakdown of order statuses (completed, pending, cancelled, returned)
+• Total number of products sold and top-selling products
+• Average order value and peak business hours
+• Complete staff attendance details including total staff, present, absent, late arrivals, and department-wise attendance
+• Delivery operations overview including number of delivery partners available, total orders assigned, total orders delivered, pending deliveries, delayed or failed deliveries
+• Individual delivery partner performance with order delivery counts and average delivery time
+• Inventory highlights such as low-stock and out-of-stock items
+• Operational efficiency metrics including order processing time, delivery time, and fulfillment rate
+• Any issues, alerts, or customer complaints recorded today
+• Key insights, performance highlights, problem areas, and actionable recommendations for improvement
+
+Present the report in a well-structured, professional format with clear headings and bullet points, suitable for management and admin dashboard review.` }} className="group relative block w-full bg-gradient-to-br from-[#5D4037] via-[#795548] to-[#8D6E63] rounded-2xl p-4 md:p-5 shadow-xl shadow-[#5D4037]/20 overflow-hidden transition-all duration-500 hover:shadow-[#5D4037]/40 hover:-translate-y-1">
 
                   {/* Decorative Background Elements */}
                   <div className="absolute top-0 right-0 -mt-10 -mr-10 w-48 h-48 bg-white/10 rounded-full blur-3xl animate-pulse" />
@@ -71,10 +126,10 @@ const AppGallery = () => {
 
                       <div className="space-y-1">
                         <h2 className="text-lg sm:text-2xl font-black text-white tracking-tight drop-shadow-sm">
-                          Need help managing?
+                          What's the Business today?
                         </h2>
                         <p className="text-[#D7CCC8] text-xs sm:text-sm leading-relaxed font-medium line-clamp-1 sm:line-clamp-none">
-                          Chat with our advanced AI to analyze sales, check stock instantly.
+                          <span className="text-white font-bold">₹{dailyStats.revenue.toLocaleString()}</span> from {dailyStats.orders} orders. Click for details.
                         </p>
                       </div>
                     </div>
