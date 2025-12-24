@@ -25,7 +25,7 @@ export default defineConfig(({ mode }) => ({
           firebase: ['firebase/compat/app', 'firebase/compat/database', 'firebase/compat/auth', 'firebase/compat/storage', 'firebase/compat/messaging'],
           ui: ['@radix-ui/react-slot', '@radix-ui/react-label', 'lucide-react', 'clsx', 'tailwind-merge'],
           charts: ['recharts', 'chart.js', 'react-chartjs-2'],
-          utils: ['date-fns', 'jspdf', 'jspdf-autotable', 'xlsx', 'file-saver'],
+          utils: ['date-fns', 'jspdf', 'jspdf-autotable'],
         },
       },
     },
