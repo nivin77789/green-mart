@@ -305,7 +305,7 @@ const Navbar = () => {
                 <>
                   {/* Mobile Modal - Centered & Fixed */}
                   <div
-                    className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm md:hidden animate-in fade-in duration-200"
+                    className="fixed inset-0 z-[100] flex items-center justify-center h-[100dvh] w-screen p-4 bg-black/60 backdrop-blur-sm md:hidden animate-in fade-in duration-200"
                     onClick={() => setMenuOpen(false)}
                   >
                     <div

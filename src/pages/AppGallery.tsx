@@ -89,6 +89,44 @@ const AppGallery = () => {
               </div>
             )}
 
+            {/* Mobile Admin Controls - Below Banner */}
+            {userRole === "admin" && (
+              <div className="grid grid-cols-2 gap-3 xl:hidden animate-in fade-in slide-in-from-top-4 duration-500 delay-100">
+                <Link
+                  to="/staffes"
+                  className="group relative flex flex-row items-center justify-center gap-3 p-3 h-16 rounded-2xl bg-gradient-to-br from-white/40 via-white/20 to-transparent backdrop-blur-md border border-white/40 hover:border-[#8D6E63]/50 transition-all duration-300 shadow-sm hover:shadow-lg hover:shadow-[#8D6E63]/20 hover:-translate-y-1 overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-[#8D6E63]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
+
+                  <div className="relative p-2 rounded-xl bg-[#8D6E63]/10 group-hover:bg-[#8D6E63]/20 transition-all duration-300 group-hover:scale-110">
+                    <Users className="w-4 h-4 text-[#5D4037] dark:text-[#A1887F]" />
+                  </div>
+                  <span className="relative text-[10px] font-bold text-[#5D4037] dark:text-[#D7CCC8] text-center tracking-wide group-hover:text-[#5D4037] transition-colors whitespace-nowrap">
+                    Manage Staff
+                  </span>
+                </Link>
+
+                <button
+                  onClick={() => setIsManaging(!isManaging)}
+                  className={`group relative flex flex-row items-center justify-center gap-3 p-3 h-16 rounded-2xl backdrop-blur-md border transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1 overflow-hidden ${isManaging
+                    ? "bg-[#5D4037] border-[#5D4037] shadow-[#5D4037]/30"
+                    : "bg-gradient-to-br from-white/40 via-white/20 to-transparent border-white/40 hover:border-[#8D6E63]/50 hover:shadow-[#8D6E63]/20"
+                    }`}
+                >
+                  <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl ${isManaging ? "bg-white/10" : "bg-[#8D6E63]/10"}`} />
+
+                  <div className={`relative p-2 rounded-xl transition-all duration-300 group-hover:scale-110 ${isManaging ? "bg-white/20" : "bg-[#8D6E63]/10 group-hover:bg-[#8D6E63]/20"
+                    }`}>
+                    <Settings className={`w-4 h-4 ${isManaging ? "text-white animate-spin-slow" : "text-[#5D4037] dark:text-[#A1887F]"}`} />
+                  </div>
+                  <span className={`relative text-[10px] font-bold text-center tracking-wide transition-colors whitespace-nowrap ${isManaging ? "text-white" : "text-[#5D4037] dark:text-[#D7CCC8] group-hover:text-[#5D4037]"
+                    }`}>
+                    {isManaging ? "Done" : "Manage Apps"}
+                  </span>
+                </button>
+              </div>
+            )}
+
             <div className="flex-1 min-h-0">
               <AppGrid isManaging={isManaging} searchQuery={searchQuery} />
             </div>
@@ -97,37 +135,37 @@ const AppGallery = () => {
           {/* Right Sidebar - Notifications & Admin Tools */}
           <div className="xl:col-span-1 h-auto xl:h-full min-h-0 flex-shrink-0 animate-in fade-in slide-in-from-right-8 duration-700 delay-200 flex flex-col gap-4 order-2 xl:order-none">
 
-            {/* Admin Controls */}
+            {/* Desktop Admin Controls */}
             {userRole === "admin" && (
-              <div className="grid grid-cols-2 gap-3 flex-shrink-0 animate-in fade-in slide-in-from-right-4 duration-700 delay-300">
+              <div className="hidden xl:grid grid-cols-2 gap-3 flex-shrink-0 animate-in fade-in slide-in-from-right-4 duration-700 delay-300">
                 <Link
                   to="/staffes"
-                  className="group relative flex flex-row xl:flex-col items-center justify-center gap-3 xl:gap-2 p-3 h-16 xl:h-[110px] rounded-2xl bg-gradient-to-br from-white/40 via-white/20 to-transparent backdrop-blur-md border border-white/40 hover:border-[#8D6E63]/50 transition-all duration-300 shadow-sm hover:shadow-lg hover:shadow-[#8D6E63]/20 hover:-translate-y-1 overflow-hidden"
+                  className="group relative flex flex-col items-center justify-center gap-2 p-3 h-[110px] rounded-2xl bg-gradient-to-br from-white/40 via-white/20 to-transparent backdrop-blur-md border border-white/40 hover:border-[#8D6E63]/50 transition-all duration-300 shadow-sm hover:shadow-lg hover:shadow-[#8D6E63]/20 hover:-translate-y-1 overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-[#8D6E63]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
 
-                  <div className="relative p-2 xl:p-2.5 rounded-xl bg-[#8D6E63]/10 group-hover:bg-[#8D6E63]/20 transition-all duration-300 group-hover:scale-110">
-                    <Users className="w-4 h-4 xl:w-5 xl:h-5 text-[#5D4037] dark:text-[#A1887F]" />
+                  <div className="relative p-2.5 rounded-xl bg-[#8D6E63]/10 group-hover:bg-[#8D6E63]/20 transition-all duration-300 group-hover:scale-110">
+                    <Users className="w-5 h-5 text-[#5D4037] dark:text-[#A1887F]" />
                   </div>
-                  <span className="relative text-[10px] xl:text-xs font-bold text-[#5D4037] dark:text-[#D7CCC8] text-center tracking-wide group-hover:text-[#5D4037] transition-colors whitespace-nowrap">
+                  <span className="relative text-xs font-bold text-[#5D4037] dark:text-[#D7CCC8] text-center tracking-wide group-hover:text-[#5D4037] transition-colors whitespace-nowrap">
                     Manage Staff
                   </span>
                 </Link>
 
                 <button
                   onClick={() => setIsManaging(!isManaging)}
-                  className={`group relative flex flex-row xl:flex-col items-center justify-center gap-3 xl:gap-2 p-3 h-16 xl:h-[110px] rounded-2xl backdrop-blur-md border transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1 overflow-hidden ${isManaging
+                  className={`group relative flex flex-col items-center justify-center gap-2 p-3 h-[110px] rounded-2xl backdrop-blur-md border transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1 overflow-hidden ${isManaging
                     ? "bg-[#5D4037] border-[#5D4037] shadow-[#5D4037]/30"
                     : "bg-gradient-to-br from-white/40 via-white/20 to-transparent border-white/40 hover:border-[#8D6E63]/50 hover:shadow-[#8D6E63]/20"
                     }`}
                 >
                   <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl ${isManaging ? "bg-white/10" : "bg-[#8D6E63]/10"}`} />
 
-                  <div className={`relative p-2 xl:p-2.5 rounded-xl transition-all duration-300 group-hover:scale-110 ${isManaging ? "bg-white/20" : "bg-[#8D6E63]/10 group-hover:bg-[#8D6E63]/20"
+                  <div className={`relative p-2.5 rounded-xl transition-all duration-300 group-hover:scale-110 ${isManaging ? "bg-white/20" : "bg-[#8D6E63]/10 group-hover:bg-[#8D6E63]/20"
                     }`}>
-                    <Settings className={`w-4 h-4 xl:w-5 xl:h-5 ${isManaging ? "text-white animate-spin-slow" : "text-[#5D4037] dark:text-[#A1887F]"}`} />
+                    <Settings className={`w-5 h-5 ${isManaging ? "text-white animate-spin-slow" : "text-[#5D4037] dark:text-[#A1887F]"}`} />
                   </div>
-                  <span className={`relative text-[10px] xl:text-xs font-bold text-center tracking-wide transition-colors whitespace-nowrap ${isManaging ? "text-white" : "text-[#5D4037] dark:text-[#D7CCC8] group-hover:text-[#5D4037]"
+                  <span className={`relative text-xs font-bold text-center tracking-wide transition-colors whitespace-nowrap ${isManaging ? "text-white" : "text-[#5D4037] dark:text-[#D7CCC8] group-hover:text-[#5D4037]"
                     }`}>
                     {isManaging ? "Done" : "Manage Apps"}
                   </span>
