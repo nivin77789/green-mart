@@ -120,7 +120,7 @@ const AppGrid = ({ isManaging = false, searchQuery = "" }: { isManaging?: boolea
       {/* Admin Action Buttons */}
 
 
-      <div className="flex flex-col h-full w-full rounded-3xl bg-white/10 dark:bg-black/40 backdrop-blur-2xl border border-white/20 dark:border-white/10 shadow-2xl transition-all duration-300 hover:shadow-3xl hover:bg-white/15 dark:hover:bg-black/50 overflow-hidden">
+      <div className="flex flex-col h-full w-full rounded-3xl bg-white/40 dark:bg-black/40 backdrop-blur-2xl border border-[#8D6E63]/10 dark:border-white/10 shadow-2xl transition-all duration-300 hover:shadow-3xl hover:bg-white/50 dark:hover:bg-black/50 overflow-hidden">
         <div className="flex-1 overflow-y-auto p-5 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent hover:scrollbar-thumb-white/20">
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 sm:gap-6">
             {filteredInitialApps.map((app, index) => (

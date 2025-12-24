@@ -7,13 +7,13 @@ import { adjustStockForOrder } from "@/utils/stockManagement";
 
 // Re-using the firebase config from existing files
 const firebaseConfig = {
-    apiKey: "AIzaSyCSH0uuKssWvkgvMOnWV_1u3zPO-1XNWPg",
-    authDomain: "dailyclub11.firebaseapp.com",
-    databaseURL: "https://dailyclub11-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "dailyclub11",
-    storageBucket: "dailyclub11.firebasestorage.app",
-    messagingSenderId: "439424426599",
-    appId: "1:439424426599:web:c2e064f640bf5927fdaac2"
+    apiKey: "AIzaSyBJK-AGuTOiUxHinJZPH9rmQ_2Wa7ixrMM",
+    authDomain: "green-mart-28e7a.firebaseapp.com",
+    databaseURL: "https://green-mart-28e7a-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "green-mart-28e7a",
+    storageBucket: "green-mart-28e7a.firebasestorage.app",
+    messagingSenderId: "881520746742",
+    appId: "1:881520746742:web:d177ca0c751198fac84cd7"
 };
 
 if (!firebase.apps.length) {

@@ -33,13 +33,13 @@ ChartJS.register(
 
 // Firebase Config
 const firebaseConfig = {
-    apiKey: "AIzaSyCSH0uuKssWvkgvMOnWV_1u3zPO-1XNWPg",
-    authDomain: "dailyclub11.firebaseapp.com",
-    databaseURL: "https://dailyclub11-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "dailyclub11",
-    storageBucket: "dailyclub11.firebasestorage.app",
-    messagingSenderId: "439424426599",
-    appId: "1:439424426599:web:366ea0de36341a00fdaac2",
+    apiKey: "AIzaSyBJK-AGuTOiUxHinJZPH9rmQ_2Wa7ixrMM",
+    authDomain: "green-mart-28e7a.firebaseapp.com",
+    databaseURL: "https://green-mart-28e7a-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "green-mart-28e7a",
+    storageBucket: "green-mart-28e7a.firebasestorage.app",
+    messagingSenderId: "881520746742",
+    appId: "1:881520746742:web:d177ca0c751198fac84cd7"
 };
 
 if (!firebase.apps.length) {
@@ -53,7 +53,7 @@ interface Message {
     timestamp: string;
 }
 
-const STORAGE_KEY = 'dailyclub_ai_chat_history';
+const STORAGE_KEY = 'greenmart_ai_chat_history';
 
 // --- CHART COMPONENT ---
 const ChatChart = ({ type, data }: { type: string, data: any }) => {
@@ -176,14 +176,14 @@ const AIChat = () => {
             return saved ? JSON.parse(saved) : [{
                 id: '1',
                 role: 'ai',
-                content: "Hello! I'm your DailyClub AI assistant. I can show you charts regarding revenue, order status, or top products. Try asking 'Show me a revenue chart'!",
+                content: "Hello! I'm your Green Mart AI assistant. I can show you charts regarding revenue, order status, or top products. Try asking 'Show me a revenue chart'!",
                 timestamp: new Date().toISOString()
             }];
         } catch (e) {
             return [{
                 id: '1',
                 role: 'ai',
-                content: "Hello! I'm your DailyClub AI assistant.",
+                content: "Hello! I'm your Green Mart AI assistant.",
                 timestamp: new Date().toISOString()
             }];
         }
@@ -302,7 +302,7 @@ const AIChat = () => {
                 .map(m => `${m.role === 'user' ? 'User' : 'Assistant'}: ${m.content}`)
                 .join('\n');
 
-            const systemPrompt = "System: You are an intelligent store assistant for DailyClub. You have access to real-time store data. Use it to answer questions. \n\nIMPORTANT: \n1. When asked for TOTAL REVENUE or SALES, use the pre-calculated 'Total Revenue' provided in the summary stats. Do NOT sum up recent orders yourself as they are incomplete.\n2. Ignore 'Cancelled' orders for financial or count calculations.\n3. If the user asks for a chart or visualization, output the corresponding tag ONLY (e.g., [CHART:revenue]).\nTags available: [CHART:revenue], [CHART:status], [CHART:products].\nIf answering normally, use Markdown (bold, lists).";
+            const systemPrompt = "System: You are an intelligent store assistant for Green Mart. You have access to real-time store data. Use it to answer questions. \n\nIMPORTANT: \n1. When asked for TOTAL REVENUE or SALES, use the pre-calculated 'Total Revenue' provided in the summary stats. Do NOT sum up recent orders yourself as they are incomplete.\n2. Ignore 'Cancelled' orders for financial or count calculations.\n3. If the user asks for a chart or visualization, output the corresponding tag ONLY (e.g., [CHART:revenue]).\nTags available: [CHART:revenue], [CHART:status], [CHART:products].\nIf answering normally, use Markdown (bold, lists).";
 
             const fullPrompt = `${systemPrompt}\n${liveContext}\n\nCONVERSATION:\n${history}\nAssistant:`;
 
@@ -435,7 +435,7 @@ const AIChat = () => {
                                 <div className={`flex flex-col max-w-[85%] ${msg.role === 'user' ? 'items-end' : 'items-start'}`}>
                                     <div className={`flex items-end gap-2 mb-1.5 opacity-70 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}>
                                         <span className="text-xs font-medium">
-                                            {msg.role === 'ai' ? 'DailyClub AI' : 'You'}
+                                            {msg.role === 'ai' ? 'Green Mart AI' : 'You'}
                                         </span>
                                         <span className="text-[10px] text-slate-400">
                                             {formatTime(msg.timestamp)}

@@ -94,7 +94,7 @@ const Navbar = () => {
 
   const displayName = userRole === "admin" ? "Administrator" : (staffName || "Staff Member");
   const initials = displayName.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
-  const userEmail = userRole === "admin" ? "admin@dailyclub.com" : `${staffName?.toLowerCase().replace(/\s/g, '') || 'staff'}@dailyclub.staff`;
+  const userEmail = userRole === "admin" ? "admin@greenmart.com" : `${staffName?.toLowerCase().replace(/\s/g, '') || 'staff'}@greenmart.staff`;
 
   const allApps = allAppsRaw.filter(app => {
     if (userRole === "admin") return true;
@@ -152,9 +152,11 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/apps" className="flex items-center gap-3">
-            <img src="/logo.png" alt="DailyClub" className="w-9 h-9 rounded-xl object-contain" />
-            <span className="font-bold text-lg tracking-tight text-slate-500 dark:text-slate-400">DailyClub</span>
+          <Link to="/apps" className="flex items-center gap-3 group">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white shadow-lg shadow-indigo-500/20 group-hover:scale-105 transition-transform duration-300">
+              <ShoppingBag className="w-5 h-5" strokeWidth={2.5} />
+            </div>
+            <span className="font-bold text-lg tracking-tight text-slate-700 dark:text-slate-200">Green Mart</span>
           </Link>
 
           {/* Right side icons */}

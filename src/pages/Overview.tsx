@@ -14,13 +14,13 @@ import BackButton from "@/components/BackButton";
 
 // Firebase Config
 const firebaseConfig = {
-    apiKey: "AIzaSyCSH0uuKssWvkgvMOnWV_1u3zPO-1XNWPg",
-    authDomain: "dailyclub11.firebaseapp.com",
-    databaseURL: "https://dailyclub11-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "dailyclub11",
-    storageBucket: "dailyclub11.firebasestorage.app",
-    messagingSenderId: "439424426599",
-    appId: "1:439424426599:web:366ea0de36341a00fdaac2"
+    apiKey: "AIzaSyBJK-AGuTOiUxHinJZPH9rmQ_2Wa7ixrMM",
+    authDomain: "green-mart-28e7a.firebaseapp.com",
+    databaseURL: "https://green-mart-28e7a-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "green-mart-28e7a",
+    storageBucket: "green-mart-28e7a.firebasestorage.app",
+    messagingSenderId: "881520746742",
+    appId: "1:881520746742:web:d177ca0c751198fac84cd7"
 };
 
 if (!firebase.apps.length) {
@@ -149,7 +149,7 @@ const DataTable = ({ data, title, icon: Icon, productLookup, stockLookup }: any)
             doc.setFontSize(26);
             doc.setTextColor(79, 70, 229);
             doc.setFont("helvetica", "bold");
-            doc.text("DailyClub", 14, 20);
+            doc.text("Green Mart", 14, 20);
 
             doc.setFontSize(16);
             doc.setTextColor(40, 40, 40);
@@ -198,7 +198,7 @@ const DataTable = ({ data, title, icon: Icon, productLookup, stockLookup }: any)
                 alternateRowStyles: { fillColor: [248, 250, 252] },
                 columnStyles: { 0: { fontStyle: 'bold', cellWidth: 40 }, 1: { cellWidth: 100 }, 2: { cellWidth: 60 }, 3: { halign: 'center', cellWidth: 40 } }
             });
-            doc.save(`dailyclub_${title.toLowerCase()}_report.pdf`);
+            doc.save(`greenmart_${title.toLowerCase()}_report.pdf`);
         } catch (e: any) {
             console.error(e);
             alert("PDF Error: " + e.message);

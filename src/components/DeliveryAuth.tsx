@@ -108,7 +108,7 @@ export const DeliveryAuth = ({ onLogin }: AuthProps) => {
                         <Truck size={48} className="text-indigo-600 animate-pulse" />
                     </div>
                     <h1 className="text-4xl font-black text-slate-900 dark:text-white tracking-tight">
-                        DailyClub<span className="text-indigo-600">Hub</span>
+                        Green Mart<span className="text-indigo-600">Hub</span>
                     </h1>
                     <p className="text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider text-xs">
                         Delivery Partner Portal
@@ -154,7 +154,7 @@ export const DeliveryAuth = ({ onLogin }: AuthProps) => {
                             <Input
                                 className="h-14 rounded-2xl bg-slate-50/50 dark:bg-slate-800/50 border-slate-100 dark:border-slate-700/50 font-bold focus:ring-2 focus:ring-indigo-500 transition-all px-5"
                                 type="email"
-                                placeholder="name@dailyclub.in"
+                                placeholder="name@greenmart.in"
                                 value={formData.email}
                                 onChange={e => setFormData({ ...formData, email: e.target.value })}
                             />

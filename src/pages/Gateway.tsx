@@ -375,7 +375,7 @@ const Gateway = () => {
                 {/* Footer Credits */}
                 <div className="mt-20 text-center animate-reveal-up stagger-4 opacity-30 hover:opacity-100 transition-opacity duration-700">
                     <p className={`text-[10px] font-bold uppercase tracking-[0.4em] transition-colors ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
-                        &copy; 2024 DailyClub Digital Ecosystem &bull; All Systems Operational
+                        &copy; 2024 Green Mart Digital Ecosystem &bull; All Systems Operational
                     </p>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-package com.example.dailyclub
+package com.example.greenmart
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -82,7 +82,7 @@ class NotificationListener(private val context: Context) {
 
     private fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val name = "DailyClub Broadcasts"
+            val name = "Green Mart Broadcasts"
             val descriptionText = "Notifications from Admin"
             val importance = NotificationManager.IMPORTANCE_HIGH
             val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
@@ -95,7 +95,7 @@ class NotificationListener(private val context: Context) {
     }
 
     companion object {
-        private const val CHANNEL_ID = "dailyclub_broadcasts"
+        private const val CHANNEL_ID = "greenmart_broadcasts"
     }
 }
 

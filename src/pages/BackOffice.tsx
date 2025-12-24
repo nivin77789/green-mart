@@ -14,13 +14,13 @@ import { toast, Toaster } from "sonner";
 
 // Firebase Config
 const firebaseConfig = {
-    apiKey: "AIzaSyCSH0uuKssWvkgvMOnWV_1u3zPO-1XNWPg",
-    authDomain: "dailyclub11.firebaseapp.com",
-    databaseURL: "https://dailyclub11-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "dailyclub11",
-    storageBucket: "dailyclub11.firebasestorage.app",
-    messagingSenderId: "439424426599",
-    appId: "1:439424426599:web:366ea0de36341a00fdaac2"
+    apiKey: "AIzaSyBJK-AGuTOiUxHinJZPH9rmQ_2Wa7ixrMM",
+    authDomain: "green-mart-28e7a.firebaseapp.com",
+    databaseURL: "https://green-mart-28e7a-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "green-mart-28e7a",
+    storageBucket: "green-mart-28e7a.firebasestorage.app",
+    messagingSenderId: "881520746742",
+    appId: "1:881520746742:web:d177ca0c751198fac84cd7"
 };
 
 if (!firebase.apps.length) {
@@ -322,7 +322,7 @@ const BackOffice = () => {
                 <div className="md:hidden flex items-center justify-between p-4 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 sticky top-0 z-30">
                     <div className="flex items-center gap-3">
                         <BackButton />
-                        <span className="font-bold text-lg">DailyClub BackOffice</span>
+                        <span className="font-bold text-lg">Green Mart BackOffice</span>
                     </div>
                     <button onClick={() => setSidebarOpen(true)} className="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg">
                         <Menu size={20} />
