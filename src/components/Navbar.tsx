@@ -214,7 +214,7 @@ const Navbar = () => {
             </div>
 
             {/* Notifications */}
-            <div className="relative" ref={notificationRef}>
+            <div className="relative hidden md:block" ref={notificationRef}>
               <button
                 onClick={() => setNotificationsOpen(!notificationsOpen)}
                 className={`p-2.5 rounded-full transition-colors relative ${notificationsOpen ? 'bg-secondary' : 'hover:bg-secondary'}`}
@@ -301,41 +301,102 @@ const Navbar = () => {
                 <Grid3X3 className="w-5 h-5 text-muted-foreground" />
               </button>
 
-              {/* App Menu Dropdown */}
               {menuOpen && (
-                <div className="absolute right-0 top-full mt-2 w-[320px] bg-white rounded-2xl shadow-xl border border-gray-200/80 p-3 animate-scale-in origin-top-right">
-                  <div className="grid grid-cols-3 gap-1">
-                    {allApps.map((item) => (
-                      <Link
-                        key={item.path}
-                        to={item.path}
-                        target={item.path === '/delivery' ? "_blank" : undefined}
-                        rel={item.path === '/delivery' ? "noopener noreferrer" : undefined}
-                        onClick={() => setMenuOpen(false)}
-                        className={`flex flex-col items-center gap-2 p-3 rounded-xl transition-all duration-200 group hover:bg-gray-50 ${location.pathname === item.path ? "bg-gray-50" : ""
-                          }`}
-                      >
-                        <div className={`w-11 h-11 rounded-full ${item.color} flex items-center justify-center shadow-sm group-hover:scale-110 group-hover:shadow-md transition-all duration-200`}>
-                          <item.icon className="w-5 h-5 text-white" />
+                <>
+                  {/* Mobile Modal - Centered & Fixed */}
+                  <div
+                    className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm md:hidden animate-in fade-in duration-200"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    <div
+                      className="w-full max-w-[340px] bg-white dark:bg-slate-900 rounded-3xl shadow-2xl overflow-hidden max-h-[80vh] flex flex-col animate-in zoom-in-95 duration-200"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      {/* Header */}
+                      <div className="p-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between bg-white dark:bg-slate-900 sticky top-0 z-10">
+                        <span className="font-bold text-lg text-slate-800 dark:text-slate-200">All Apps</span>
+                        <button
+                          onClick={() => setMenuOpen(false)}
+                          className="p-2 bg-slate-100 dark:bg-slate-800 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                        >
+                          <X size={18} />
+                        </button>
+                      </div>
+
+                      {/* Content */}
+                      <div className="flex-1 overflow-y-auto p-4 custom-scrollbar">
+                        <div className="grid grid-cols-3 gap-3">
+                          {allApps.map((item) => (
+                            <Link
+                              key={item.path}
+                              to={item.path}
+                              target={item.path === '/delivery' ? "_blank" : undefined}
+                              rel={item.path === '/delivery' ? "noopener noreferrer" : undefined}
+                              onClick={() => setMenuOpen(false)}
+                              className={`flex flex-col items-center gap-3 p-3 rounded-2xl transition-all duration-200 hover:bg-slate-50 dark:hover:bg-slate-800 border border-transparent hover:border-slate-100 dark:hover:border-slate-700 ${location.pathname === item.path ? "bg-slate-50 dark:bg-slate-800" : ""
+                                }`}
+                            >
+                              <div className={`w-12 h-12 rounded-2xl ${item.color} flex items-center justify-center shadow-lg shadow-indigo-500/10 active:scale-95 transition-all duration-200`}>
+                                <item.icon className="w-6 h-6 text-white" strokeWidth={2} />
+                              </div>
+                              <span className="text-[11px] font-bold text-slate-600 dark:text-slate-300 text-center leading-tight line-clamp-2">
+                                {item.label}
+                              </span>
+                            </Link>
+                          ))}
                         </div>
-                        <span className="text-xs font-medium text-gray-700 text-center leading-tight">
-                          {item.label}
-                        </span>
-                      </Link>
-                    ))}
+                      </div>
+
+                      {/* Footer */}
+                      <div className="p-4 border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
+                        <Link
+                          to="/apps"
+                          onClick={() => setMenuOpen(false)}
+                          className="flex items-center justify-center gap-2 w-full py-3.5 bg-white dark:bg-slate-800 rounded-xl font-bold text-xs text-slate-700 dark:text-slate-300 shadow-sm border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition-all active:scale-95"
+                        >
+                          <Grid3X3 size={14} />
+                          View Dashboard Gallery
+                        </Link>
+                      </div>
+                    </div>
                   </div>
 
-                  {/* Divider */}
-                  <div className="mt-3 pt-3 border-t border-gray-100">
-                    <Link
-                      to="/apps"
-                      onClick={() => setMenuOpen(false)}
-                      className="flex items-center justify-center gap-2 py-2 text-sm text-gray-500 hover:text-gray-700 transition-colors"
-                    >
-                      View all apps
-                    </Link>
+                  {/* Desktop Dropdown - Absolute Right with Scroll */}
+                  <div className="absolute right-0 top-full mt-2 w-[320px] hidden md:block bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-800 p-3 animate-in fade-in zoom-in-95 origin-top-right z-50">
+                    <div className="max-h-[320px] overflow-y-auto custom-scrollbar pr-1">
+                      <div className="grid grid-cols-3 gap-1">
+                        {allApps.map((item) => (
+                          <Link
+                            key={item.path}
+                            to={item.path}
+                            target={item.path === '/delivery' ? "_blank" : undefined}
+                            rel={item.path === '/delivery' ? "noopener noreferrer" : undefined}
+                            onClick={() => setMenuOpen(false)}
+                            className={`flex flex-col items-center gap-2 p-3 rounded-xl transition-all duration-200 group hover:bg-slate-50 dark:hover:bg-slate-800 ${location.pathname === item.path ? "bg-slate-50 dark:bg-slate-800" : ""
+                              }`}
+                          >
+                            <div className={`w-11 h-11 rounded-full ${item.color} flex items-center justify-center shadow-sm group-hover:scale-110 group-hover:shadow-md transition-all duration-200`}>
+                              <item.icon className="w-5 h-5 text-white" />
+                            </div>
+                            <span className="text-xs font-medium text-slate-700 dark:text-slate-300 text-center leading-tight">
+                              {item.label}
+                            </span>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="mt-3 pt-3 border-t border-slate-100 dark:border-slate-800">
+                      <Link
+                        to="/apps"
+                        onClick={() => setMenuOpen(false)}
+                        className="flex items-center justify-center gap-2 py-2 text-sm text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors"
+                      >
+                        View all apps
+                      </Link>
+                    </div>
                   </div>
-                </div>
+                </>
               )}
             </div>
 

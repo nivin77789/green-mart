@@ -14,4 +14,21 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    outDir: 'dist',
+    sourcemap: false,
+    minify: 'esbuild',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+          firebase: ['firebase/compat/app', 'firebase/compat/database', 'firebase/compat/auth', 'firebase/compat/storage', 'firebase/compat/messaging'],
+          ui: ['@radix-ui/react-slot', '@radix-ui/react-label', 'lucide-react', 'clsx', 'tailwind-merge'],
+          charts: ['recharts', 'chart.js', 'react-chartjs-2'],
+          utils: ['date-fns', 'jspdf', 'jspdf-autotable', 'xlsx', 'file-saver'],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 1000,
+  },
 }));

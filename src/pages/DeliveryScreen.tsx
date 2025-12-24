@@ -889,18 +889,13 @@ const DeliveryScreen = () => {
                             <div className="pt-6 pb-2 space-y-4 bg-slate-50/50 dark:bg-slate-950/50 backdrop-blur-sm -mx-5 px-5 z-20">
                                 <div className="flex gap-2">
                                     <button
-                                        onClick={toggleNavigation}
+                                        onClick={openMaps}
                                         className="flex-1 py-5 bg-emerald-600/10 dark:bg-emerald-400/10 text-emerald-600 dark:text-emerald-400 font-black text-xs rounded-[2rem] border border-emerald-600/20 flex items-center justify-center gap-2 hover:bg-emerald-600/20 transition-all active:scale-95 uppercase tracking-widest"
                                     >
                                         <Navigation size={16} strokeWidth={2.5} />
-                                        {isNavigating ? "Close Map" : "Get Nav"}
+                                        Get Nav
                                     </button>
-                                    <button
-                                        onClick={openMaps}
-                                        className="w-16 py-5 bg-blue-600/10 dark:bg-blue-400/10 text-blue-600 dark:text-blue-400 rounded-[2rem] border border-blue-600/20 flex items-center justify-center hover:bg-blue-600/20 transition-all active:scale-95"
-                                    >
-                                        <MapIcon size={24} strokeWidth={2.5} />
-                                    </button>
+
                                 </div>
 
                                 <div
